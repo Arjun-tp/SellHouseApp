@@ -2,6 +2,7 @@ package com.example.sellhouse;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,14 +37,16 @@ public class RegisterActivity extends AppCompatActivity {
                 String emailToFirebase = email.getText().toString();
                 String mobileToFirebase = mobile.getText().toString();
                 String passwordToFirebase = password.getText().toString();
-
                 HashMap<String , String> userMap = new HashMap<>();
-
                 userMap.put("email", emailToFirebase);
                 userMap.put("mobile", mobileToFirebase);
                 userMap.put("password", passwordToFirebase);
-
                 root.push().setValue(userMap);
+
+
+                Intent intent = new Intent(RegisterActivity.this, OtpActivity.class);
+                startActivity(intent);
+
             }
         });
 
