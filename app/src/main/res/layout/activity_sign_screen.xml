@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSignUp"
         android:layout_width="146dp"
         android:layout_height="50dp"
         android:layout_marginStart="35dp"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnSignIn"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="146dp"
         android:layout_height="50dp"
@@ -80,6 +80,6 @@
         android:layout_marginTop="91dp"
         android:text="Sign In"
         android:textColor="@color/primaryColor"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/btnSignUp"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
