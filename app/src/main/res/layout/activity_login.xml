@@ -8,7 +8,7 @@
 
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnLogin"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="350dp"
         android:layout_height="40dp"
@@ -45,7 +45,7 @@
         android:text="Log In With Google"
         android:textColor="@color/primaryColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <TextView
         android:id="@+id/textView6"

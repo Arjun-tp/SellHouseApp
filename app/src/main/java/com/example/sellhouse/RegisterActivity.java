@@ -15,11 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
-import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
     Button register;
@@ -35,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        register = findViewById(R.id.btnRegister);
+        register = findViewById(R.id.btnLogin);
         email = findViewById(R.id.extEmail);
         mobile = findViewById(R.id.extMobile);
         password = findViewById(R.id.extPassword);
@@ -78,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         if (passwordToFirebase.isEmpty()){
-            password.setError("Mobile is required");
+            password.setError("Password is required");
             password.requestFocus();
             return;
         }
