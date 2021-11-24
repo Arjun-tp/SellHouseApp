@@ -10,14 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SellHouse">
         <activity
-            android:name=".LoginActivity"
+            android:name=".SellActivityTwo"
             android:exported="true" />
+        <activity
+            android:name=".SellActivityOne"
+            android:exported="true"
+            android:parentActivityName=".BuyOrSellActivity"/>
+        <activity
+            android:name=".BuyOrSellActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SellHouse.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:parentActivityName=".SignScreenActivity"/>
         <activity
             android:name=".OtpActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".RegisterActivity"/>
         <activity
             android:name=".RegisterActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".SignScreenActivity"/>
         <activity
             android:name=".SignScreenActivity"
             android:exported="true" />

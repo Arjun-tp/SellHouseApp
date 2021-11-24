@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_baseline_person"
+            android:title="Profile"/>
+        <item android:id="@+id/nav_notifications"
+            android:icon="@drawable/ic_baseline_notifications"
+            android:title="Notifications"/>
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item android:id="@+id/buyHouse"
+                android:title="Buy a house"/>
+            <item android:id="@+id/nav_sellHouse"
+                android:title="Sell a house"/>
+        </menu>
+    </item>
+
+    <item android:title="">
+        <menu>
+            <item android:id="@+id/termsAndConditions"
+                android:title="Terms and Conditions"/>
+            <item android:id="@+id/nav_about"
+                android:title="About"/>
+        </menu>
+    </item>
+
+</menu>

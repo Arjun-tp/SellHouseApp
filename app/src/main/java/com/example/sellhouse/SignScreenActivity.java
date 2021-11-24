@@ -14,6 +14,7 @@ public class SignScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_screen);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         signIn = findViewById(R.id.btnSignIn);
         signUp = findViewById(R.id.btnSignUp);
 

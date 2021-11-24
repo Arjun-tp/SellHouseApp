@@ -17,6 +17,7 @@ public class OtpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         otp = findViewById(R.id.extOtp);
         verifyOtp = findViewById(R.id.btnVerify);
 

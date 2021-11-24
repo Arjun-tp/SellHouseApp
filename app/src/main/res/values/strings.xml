@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sell House</string>
+    <string name="navigation_drawer_open">Open Navigation</string>
+    <string name="navigation_drawer_closed">Close Navigation</string>
 </resources>
