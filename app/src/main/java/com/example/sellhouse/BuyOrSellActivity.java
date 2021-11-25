@@ -44,8 +44,6 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
 //        navigationView.setCheckedItem(R.id.sellHouse);
 
 
-
-
         sellHouse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
