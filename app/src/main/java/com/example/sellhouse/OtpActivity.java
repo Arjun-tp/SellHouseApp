@@ -21,12 +21,9 @@ public class OtpActivity extends AppCompatActivity {
         otp = findViewById(R.id.extOtp);
         verifyOtp = findViewById(R.id.btnVerify);
 
-        verifyOtp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(OtpActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
+        verifyOtp.setOnClickListener(view -> {
+            Intent intent = new Intent(OtpActivity.this, LoginActivity.class);
+            startActivity(intent);
         });
     }
 }

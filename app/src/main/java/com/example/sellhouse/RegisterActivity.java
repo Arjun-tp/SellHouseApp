@@ -85,17 +85,13 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
         mAuth.createUserWithEmailAndPassword(emailToFirebase, passwordToFirebase)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            User user = new User(emailToFirebase, mobileToFirebase, passwordToFirebase);
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()){
+                        User user = new User(emailToFirebase, mobileToFirebase, passwordToFirebase);
+                        FirebaseDatabase.getInstance().getReference("Users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(user).addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()){
                                         Toast.makeText(RegisterActivity.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(RegisterActivity.this, OtpActivity.class);
                                         startActivity(intent);
@@ -103,11 +99,9 @@ public class RegisterActivity extends AppCompatActivity {
                                     } else {
                                         Toast.makeText(RegisterActivity.this, "Failed to register!", Toast.LENGTH_LONG).show();
                                     }
-                                }
-                            });
-                        } else {
-                            Toast.makeText(RegisterActivity.this, "Failed to register!", Toast.LENGTH_LONG).show();
-                        }
+                                });
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Failed to register!", Toast.LENGTH_LONG).show();
                     }
                 });
 

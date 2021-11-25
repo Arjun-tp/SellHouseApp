@@ -17,7 +17,8 @@
         android:background="@android:color/black"
         android:backgroundTint="@android:color/black"
         android:text="Sign Up"
-        android:textColor="@color/primaryColor"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chkTerms" />
@@ -33,7 +34,8 @@
         android:background="@color/primaryColor"
         android:backgroundTint="@android:color/white"
         android:text="Sign Up with Apple"
-        android:textColor="@color/primaryColor"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBuyHouse" />
