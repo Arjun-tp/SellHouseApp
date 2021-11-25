@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.sellhouse.notification.NotificationFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class BuyOrSellActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
