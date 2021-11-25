@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SellActivityTwo">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="vertical">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="292dp"
+            android:text="Add Details"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/extType"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="45dp"
+            android:ems="10"
+            android:hint="Property type(House/Condos/Basements)"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"/>
+
+        <EditText
+            android:id="@+id/extNoOfBedrooms"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="45dp"
+            android:ems="10"
+            android:hint="Number of Bedrooms"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extType" />
+
+        <EditText
+            android:id="@+id/extProfileEmail"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="45dp"
+            android:ems="10"
+            android:hint="Number of Washrooms"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extNoOfBedrooms" />
+
+        <EditText
+            android:id="@+id/extFullName"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="45dp"
+            android:ems="10"
+            android:hint="Price"
+            android:inputType="numberSigned|number|numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extProfileEmail" />
+
+        <EditText
+            android:id="@+id/extDescription"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="52dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extFullName" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="52dp"
+            android:text="Upload Image"
+            android:textColor="@color/primaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extDescription" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="13dp"
+            android:src="?attr/actionModeSelectAllDrawable"
+            app:barrierMargin="@dimen/browser_actions_context_menu_min_padding"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="13dp"
+            android:src="?attr/actionModeSelectAllDrawable"
+            app:barrierMargin="@dimen/browser_actions_context_menu_min_padding"
+            app:layout_constraintEnd_toStartOf="@+id/imageView5"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="199dp"
+            android:src="?attr/actionModeSelectAllDrawable"
+            app:barrierMargin="@dimen/browser_actions_context_menu_min_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="279dp"
+            android:layout_marginTop="95dp"
+            android:layout_marginEnd="52dp"
+            android:text="Post"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
