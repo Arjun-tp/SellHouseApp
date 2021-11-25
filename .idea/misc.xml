@@ -6,17 +6,21 @@
         <entry key="..\:/Users/arjun/Downloads/SellHouse/app/src/main/res/layout/activity_landing.xml" value="0.22" />
         <entry key="..\:/Users/arjun/Downloads/SellHouse/app/src/main/res/layout/activity_main.xml" value="0.16757246376811594" />
         <entry key="..\:/Users/arjun/Downloads/SellHouse/app/src/main/res/layout/activity_sign_screen.xml" value="0.18" />
-        <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/activity_buy_or_sell.xml" value="0.25" />
         <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/activity_landing.xml" value="0.19972826086956522" />
         <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/activity_otp.xml" value="0.25" />
         <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/activity_register.xml" value="0.22" />
-        <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/activity_sell_one.xml" value="0.1766304347826087" />
-        <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/activity_sell_two.xml" value="0.1766304347826087" />
         <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/activity_sign_screen.xml" value="0.2" />
-        <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/fragment_sell_activity_one.xml" value="0.25" />
-        <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/layout/nav_header.xml" value="0.1766304347826087" />
-        <entry key="..\:/Users/arjun/Downloads/SellHouseApp/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/ProfileFragment.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/about_fragment.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/activity_buy_or_sell.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/fragment_sell_activity_one.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/home_fragment.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/notification_fragment.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/layout/terms_fragment.xml" value="0.49583333333333335" />
+        <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.49583333333333335" />
       </map>
     </option>
   </component>
@@ -25,5 +29,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="SuppressABINotification">
+    <option name="modulesWithSuppressedNotConfigured">
+      <set>
+        <option value="SellHouse.app" />
+      </set>
+    </option>
   </component>
 </project>

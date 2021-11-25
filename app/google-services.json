@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "817280990417",
+    "firebase_url": "https://sellhouse-4995a-default-rtdb.firebaseio.com",
+    "project_id": "sellhouse-4995a",
+    "storage_bucket": "sellhouse-4995a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817280990417:android:7134d2067628d092fc19f0",
+        "android_client_info": {
+          "package_name": "com.example.sellhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817280990417-idc5tsarkq70nrr0ka2omlglm32ddhan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApzdIVkYxLCzB0qV7U4OHKvQTv0JrZgZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817280990417-idc5tsarkq70nrr0ka2omlglm32ddhan.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
