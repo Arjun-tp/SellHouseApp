@@ -1,0 +1,52 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="364dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="77dp"
+            android:layout_marginEnd="24dp"
+            android:text="What are you looking for today?"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/primaryColor"
+            android:textSize="32dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSellHouse"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="373dp"
+            android:layout_marginEnd="31dp"
+            android:background="@color/primaryColor"
+            android:backgroundTint="@android:color/white"
+            android:text="Sell a House"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white" />
+
+        <Button
+            android:id="@+id/btnBuyHouse"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="273dp"
+            android:layout_marginEnd="31dp"
+            android:text="Buy a House"
+            android:textAllCaps="false"
+            android:textColor="@color/primaryColor" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

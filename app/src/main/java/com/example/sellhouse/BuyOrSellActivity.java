@@ -1,22 +1,20 @@
 package com.example.sellhouse;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class BuyOrSellActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class BuyOrSellActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
     Toolbar toolbar;
@@ -34,33 +32,27 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle =new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open,R.string.navigation_drawer_closed);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_closed);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-//        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
-//                new SellActivityOne()).commit();
-//        navigationView.setCheckedItem(R.id.sellHouse);
-
-
-        sellHouse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*Intent intent = new Intent(BuyOrSellActivity.this, SellActivityOne.class);
-                startActivity(intent);*/
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
-                        new SellActivityOne()).commit();
-            }
-        });
-
+        setupFragment(new HomeFragment());
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.sellHouse) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
-                    new SellActivityOne()).commit();
+        if (item.getItemId() == R.id.nav_home) {
+            setupFragment(new HomeFragment());
+        } else if (item.getItemId() == R.id.sellHouse) {
+            setupFragment(new SellActivityOne());
+        } else if (item.getItemId() == R.id.nav_profile) {
+            setupFragment(new ProfileFragment());
+        } else if (item.getItemId() == R.id.nav_notifications) {
+            setupFragment(new NotificationFragment());
+        }else if (item.getItemId() == R.id.nav_about) {
+            setupFragment(new AboutFragment());
+        }else if (item.getItemId() == R.id.termsAndConditions) {
+            setupFragment(new TermsFragment());
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -68,7 +60,7 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
 
     @Override
     public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)){
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -76,4 +68,8 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
     }
 
 
+    public void setupFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
+                fragment).commit();
+    }
 }

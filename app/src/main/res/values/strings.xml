@@ -2,6 +2,14 @@
     <string name="app_name">Sell House</string>
     <string name="navigation_drawer_open">Open Navigation</string>
     <string name="navigation_drawer_closed">Close Navigation</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_main">Sharukh\'s Assignment</string>
+    <string name="about">About</string>
+    <string name="text_loading">Loading</string>
+    <string name="something_wrong">Oops! Something went wrong</string>
+    <string name="something_wrong_desc">Please hold tight as we fix this</string>
+    <string name="refresh">Refresh</string>
+    <string name="test_string">Test String</string>
+    <string name="about_more">App developed in MVVM architecture, using Kotlin purely.\n\nIt uses RxJava3 for Async Programming and Retrofit for Network calls along with Glide for Image Loading</string>
+    <string name="about_more_find_out">Find out more source code at Github</string>
+    <string name="about_more_action_label">Visit Github</string>
 </resources>
