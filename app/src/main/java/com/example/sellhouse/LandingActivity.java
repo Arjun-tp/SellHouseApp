@@ -16,14 +16,9 @@ public class LandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
         go = findViewById(R.id.btnGo);
-
-
-        go.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LandingActivity.this, SignScreenActivity.class);
-                startActivity(intent);
-            }
+        go.setOnClickListener(view -> {
+            Intent intent = new Intent(LandingActivity.this, SignScreenActivity.class);
+            startActivity(intent);
         });
     }
 }
