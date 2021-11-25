@@ -27,24 +27,45 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_or_sell);
         toolbar = findViewById(R.id.toolbar);
+        buyHouse = findViewById(R.id.btnBuyHouse);
+        sellHouse = findViewById(R.id.btnSellHouse);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle =new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_closed);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        buyHouse = findViewById(R.id.btnBuyHouse);
-        sellHouse = findViewById(R.id.btnSellHouse);
+//        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
+//                new SellActivityOne()).commit();
+//        navigationView.setCheckedItem(R.id.sellHouse);
+
+
+
+
         sellHouse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BuyOrSellActivity.this, SellActivityOne.class);
-                startActivity(intent);
+                /*Intent intent = new Intent(BuyOrSellActivity.this, SellActivityOne.class);
+                startActivity(intent);*/
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
+                        new SellActivityOne()).commit();
             }
         });
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.sellHouse) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
+                    new SellActivityOne()).commit();
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     @Override
@@ -56,15 +77,5 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
         }
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.nav_sellHouse) {
-            Intent intent = new Intent(BuyOrSellActivity.this, SellActivityOne.class);
-            startActivity(intent);
-        }
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
 }

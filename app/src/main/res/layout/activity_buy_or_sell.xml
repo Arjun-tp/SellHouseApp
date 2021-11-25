@@ -21,57 +21,48 @@ android:fitsSystemWindows="true">
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/Theme.AppCompat.Light"
         android:elevation="4dp"/>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragmentContainer">
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="364dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="115dp"
-            android:layout_marginEnd="24dp"
-            android:text="What are you looking for today?"
-            android:textAlignment="center"
-            android:textColor="@color/primaryColor"
-            android:textSize="32dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="364dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="77dp"
+                android:layout_marginEnd="24dp"
+                android:text="What are you looking for today?"
+                android:textAlignment="center"
+                android:textColor="@color/primaryColor"
+                android:textSize="32dp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnSellHouse"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="73dp"
-            android:layout_marginEnd="31dp"
-            android:background="@color/primaryColor"
-            android:backgroundTint="@android:color/white"
-            android:text="Sell a House"
-            android:textColor="@color/primaryColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnBuyHouse" />
+            <Button
+                android:id="@+id/btnSellHouse"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="373dp"
+                android:layout_marginEnd="31dp"
+                android:background="@color/primaryColor"
+                android:backgroundTint="@android:color/white"
+                android:text="Sell a House"
+                android:textColor="@color/primaryColor" />
 
-        <Button
-            android:id="@+id/btnBuyHouse"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="113dp"
-            android:layout_marginEnd="31dp"
-            android:text="Buy a House"
-            android:textColor="@color/primaryColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btnBuyHouse"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="273dp"
+                android:layout_marginEnd="31dp"
+                android:text="Buy a House"
+                android:textColor="@color/primaryColor" />
+    </FrameLayout>
 
 </LinearLayout>
 

@@ -9,13 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SellHouse">
-        <activity
-            android:name=".SellActivityTwo"
-            android:exported="true" />
-        <activity
-            android:name=".SellActivityOne"
-            android:exported="true"
-            android:parentActivityName=".BuyOrSellActivity"/>
+
         <activity
             android:name=".BuyOrSellActivity"
             android:exported="true"

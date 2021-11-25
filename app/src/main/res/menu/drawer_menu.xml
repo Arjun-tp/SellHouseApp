@@ -15,7 +15,7 @@
         <menu>
             <item android:id="@+id/buyHouse"
                 android:title="Buy a house"/>
-            <item android:id="@+id/nav_sellHouse"
+            <item android:id="@+id/sellHouse"
                 android:title="Sell a house"/>
         </menu>
     </item>
