@@ -7,13 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-/**
- * Created by @mohamedebrahim96 on 25,November,2021
- * ShopiniWorld, Inc
- * ebrahimm131@gmail.com
- */
-
-
 public class HomeFragment extends Fragment {
 
     @Override
