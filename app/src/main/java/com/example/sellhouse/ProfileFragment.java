@@ -1,18 +1,32 @@
 package com.example.sellhouse;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment {
@@ -21,6 +35,10 @@ public class ProfileFragment extends Fragment {
     ImageView mImageView;
     EditText fullName, email, phone, addressLine1, addressLine2, postalCode;
     private Uri mImageUri;
+    ProgressBar mProgressBar;
+
+    private StorageReference mStorageRef;
+    private DatabaseReference mDatabaseRef;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,7 +56,12 @@ public class ProfileFragment extends Fragment {
         addressLine1 = view.findViewById(R.id.extAddress1);
         addressLine2 = view.findViewById(R.id.extAddress2);
         postalCode = view.findViewById(R.id.extPostCode);
+        mProgressBar = view.findViewById(R.id.progressBar);
 
+//        mProgressBar.;
+
+        mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,13 +73,58 @@ public class ProfileFragment extends Fragment {
         mButtonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                uploadFile();
             }
         });
 
-
-
         return view;
+    }
+
+    private String getFileExtension(Uri uri){
+        ContentResolver cR = getContext().getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(uri));
+    }
+
+    private void uploadFile(){
+        if (mImageUri != null){
+            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
+            fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mProgressBar.setProgress(0);
+                        }
+                    }, 500);
+                    Toast.makeText(getContext(), "Upload Successful!", Toast.LENGTH_LONG).show();
+                    Upload upload = new Upload(fullName.getText().toString().trim(),
+                            email.getText().toString().trim(),
+                            phone.getText().toString().trim(),
+                            addressLine1.getText().toString().trim(),
+                            addressLine2.getText().toString().trim(),
+                            postalCode.getText().toString().trim(),
+                            mStorageRef.getDownloadUrl().toString());
+                    String uploadId = mDatabaseRef.push().getKey();
+                    mDatabaseRef.child(uploadId).setValue(upload);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                    mProgressBar.setProgress((int) progress);
+                }
+            });
+        } else {
+            Toast.makeText(getContext(), "No file Selected!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void openFileChooser(){

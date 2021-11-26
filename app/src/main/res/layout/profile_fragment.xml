@@ -32,7 +32,7 @@
             android:layout_marginEnd="41dp"
             android:ems="10"
             android:hint="Email"
-            android:inputType="number"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/extFullName" />
@@ -46,7 +46,7 @@
             android:layout_marginEnd="41dp"
             android:ems="10"
             android:hint="Address Line 2"
-            android:inputType="number"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/extAddress1" />
@@ -60,7 +60,7 @@
             android:layout_marginEnd="41dp"
             android:ems="10"
             android:hint="Phone"
-            android:inputType="number"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/extProfileEmail" />
@@ -74,7 +74,7 @@
             android:layout_marginEnd="41dp"
             android:ems="10"
             android:hint="Address Line 1"
-            android:inputType="number"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/extPhone" />
@@ -88,7 +88,7 @@
             android:layout_marginEnd="41dp"
             android:ems="10"
             android:hint="Postal Code"
-            android:inputType="number"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/extAddress2" />
@@ -102,7 +102,7 @@
             android:layout_marginEnd="41dp"
             android:ems="10"
             android:hint="Full Name"
-            android:inputType="numberSigned|number|numberDecimal"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
@@ -133,7 +133,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/extPostCode" />
 
-
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="181dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="182dp"
+            app:layout_constraintBottom_toTopOf="@+id/imgProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
