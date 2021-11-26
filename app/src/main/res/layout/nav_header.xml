@@ -17,11 +17,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Arjun Bhai"
+        android:text="Tony Stark"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="arjun@shopiniworld.com" />
+        android:text="tony@stark.com" />
 </LinearLayout>

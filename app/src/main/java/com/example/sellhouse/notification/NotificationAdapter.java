@@ -14,12 +14,6 @@ import com.example.sellhouse.model.Notification;
 
 import java.util.List;
 
-/**
- * Created by @mohamedebrahim96 on 25,November,2021
- * ShopiniWorld, Inc
- * ebrahimm131@gmail.com
- */
-
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
 
     private List<Notification> mData;
