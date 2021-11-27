@@ -49,6 +49,12 @@ public class SellActivityTwo extends Fragment {
         String provinceHere = bundle.getString("province");
         String countryHere = bundle.getString("country");
         String postCodeHere = bundle.getString("postCode");
+        Log.d("address1--------", address1Here);
+        Log.d("address2Here--------", address2Here);
+        Log.d("cityHere--------------", cityHere);
+        Log.d("provinceHere-----------", provinceHere);
+        Log.d("countryHere------------", countryHere);
+        Log.d("postCodeHere----------", postCodeHere);
 
         return view;
     }

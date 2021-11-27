@@ -24,8 +24,8 @@ public class SellActivityOne extends Fragment {
 //        return inflater.inflate(R.layout.fragment_sell_activity_one,container,false);
 
         View view = inflater.inflate(R.layout.fragment_sell_activity_one, container, false);
-        address1 = view.findViewById(R.id.extAddress1);
-        address2 = view.findViewById(R.id.extAddress2);
+        address1 = view.findViewById(R.id.extAddressOne);
+        address2 = view.findViewById(R.id.extAddressTwo);
         city = view.findViewById(R.id.extCity);
         province = view.findViewById(R.id.extProvince);
         country = view.findViewById(R.id.extCountry);
