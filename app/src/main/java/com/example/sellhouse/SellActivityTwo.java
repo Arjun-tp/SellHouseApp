@@ -56,6 +56,9 @@ public class SellActivityTwo extends Fragment {
         Log.d("countryHere------------", countryHere);
         Log.d("postCodeHere----------", postCodeHere);
 
+
+
+
         return view;
     }
 
