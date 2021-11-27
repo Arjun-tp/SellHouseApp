@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     Button login;
     private FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Successful!", Toast.LENGTH_LONG).show();
+                            ProfileFragment.loginMail = email.getText().toString().trim();
                             Intent intent = new Intent(LoginActivity.this, BuyOrSellActivity.class);
                             startActivity(intent);
                         }else {

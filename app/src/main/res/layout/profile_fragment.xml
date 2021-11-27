@@ -24,7 +24,7 @@
             tools:src="@tools:sample/avatars" />
 
         <EditText
-            android:id="@+id/extProfileEmail"
+            android:id="@+id/extCity"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:layout_marginStart="40dp"
@@ -35,7 +35,7 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/extFullName" />
+            app:layout_constraintTop_toBottomOf="@+id/extProvince" />
 
         <EditText
             android:id="@+id/extAddress2"
@@ -63,7 +63,7 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/extProfileEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/extCity" />
 
         <EditText
             android:id="@+id/extAddress1"
@@ -94,7 +94,7 @@
             app:layout_constraintTop_toBottomOf="@+id/extAddress2" />
 
         <EditText
-            android:id="@+id/extFullName"
+            android:id="@+id/extProvince"
             android:layout_width="330dp"
             android:layout_height="40dp"
             android:layout_marginStart="40dp"

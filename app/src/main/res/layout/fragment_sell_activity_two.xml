@@ -16,9 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="33dp"
-            android:layout_marginEnd="292dp"
-            android:text="Add Details"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="211dp"
+            android:text="Add Secondary Details"
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,84 +26,84 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/extType"
+            android:id="@+id/extPropertyType"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginStart="37dp"
             android:layout_marginTop="56dp"
-            android:layout_marginEnd="45dp"
+            android:layout_marginEnd="44dp"
             android:ems="10"
             android:hint="Property type(House/Condos/Basements)"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
         <EditText
-            android:id="@+id/extNoOfBedrooms"
+            android:id="@+id/extNumberOfBedrooms"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginStart="37dp"
             android:layout_marginTop="26dp"
-            android:layout_marginEnd="45dp"
+            android:layout_marginEnd="44dp"
             android:ems="10"
             android:hint="Number of Bedrooms"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/extType" />
+            app:layout_constraintTop_toBottomOf="@+id/extPropertyType" />
 
         <EditText
-            android:id="@+id/extProfileEmail"
+            android:id="@+id/extNumberOfWashrooms"
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginStart="37dp"
             android:layout_marginTop="28dp"
-            android:layout_marginEnd="45dp"
+            android:layout_marginEnd="44dp"
             android:ems="10"
             android:hint="Number of Washrooms"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/extNoOfBedrooms" />
+            app:layout_constraintTop_toBottomOf="@+id/extNumberOfBedrooms" />
 
         <EditText
-            android:id="@+id/extFullName"
+            android:id="@+id/extPrice"
             android:layout_width="330dp"
             android:layout_height="50dp"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="37dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="45dp"
+            android:layout_marginEnd="44dp"
             android:ems="10"
             android:hint="Price"
             android:inputType="numberSigned|number|numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/extProfileEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/extNumberOfWashrooms" />
 
         <EditText
             android:id="@+id/extDescription"
             android:layout_width="330dp"
             android:layout_height="50dp"
-            android:layout_marginStart="37dp"
+            android:layout_marginStart="33dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginEnd="48dp"
             android:ems="10"
             android:gravity="start|top"
             android:hint="Description"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/extFullName" />
+            app:layout_constraintTop_toBottomOf="@+id/extPrice" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnUploadImage"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="37dp"
+            android:layout_marginStart="33dp"
             android:layout_marginTop="54dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginEnd="48dp"
             android:text="Upload Image"
             android:textColor="@color/primaryColor"
             app:layout_constraintEnd_toEndOf="parent"
@@ -111,54 +111,64 @@
             app:layout_constraintTop_toBottomOf="@+id/extDescription" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageView11"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="37dp"
+            android:layout_marginStart="27dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="13dp"
+            android:layout_marginEnd="26dp"
             android:src="?attr/actionModeSelectAllDrawable"
             app:barrierMargin="@dimen/browser_actions_context_menu_min_padding"
-            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintEnd_toStartOf="@+id/imageView22"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toBottomOf="@+id/btnUploadImage" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageView22"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="13dp"
+            android:layout_marginStart="26dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="13dp"
             android:src="?attr/actionModeSelectAllDrawable"
             app:barrierMargin="@dimen/browser_actions_context_menu_min_padding"
-            app:layout_constraintEnd_toStartOf="@+id/imageView5"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintStart_toEndOf="@+id/imageView11"
+            app:layout_constraintTop_toBottomOf="@+id/btnUploadImage" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageView33"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="7dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="199dp"
+            android:layout_marginEnd="188dp"
             android:src="?attr/actionModeSelectAllDrawable"
             app:barrierMargin="@dimen/browser_actions_context_menu_min_padding"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintStart_toEndOf="@+id/imageView22"
+            app:layout_constraintTop_toBottomOf="@+id/btnUploadImage" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnPost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="279dp"
+            android:layout_marginStart="275dp"
             android:layout_marginTop="95dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginEnd="48dp"
             android:text="Post"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toBottomOf="@+id/btnUploadImage" />
+
+        <TextView
+            android:id="@+id/txvDummy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="67dp"
+            android:layout_marginEnd="151dp"
+            android:layout_marginBottom="23dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnPost"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

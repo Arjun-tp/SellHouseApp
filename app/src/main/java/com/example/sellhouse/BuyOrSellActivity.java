@@ -68,7 +68,6 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
         }
     }
 
-
     public void setupFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
                 fragment).commit();
