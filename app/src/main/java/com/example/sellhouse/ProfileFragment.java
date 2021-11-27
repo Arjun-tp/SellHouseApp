@@ -36,6 +36,7 @@ public class ProfileFragment extends Fragment {
     EditText fullName, email, phone, addressLine1, addressLine2, postalCode;
     private Uri mImageUri;
     ProgressBar mProgressBar;
+    public static String loginMail;
 
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
@@ -50,8 +51,8 @@ public class ProfileFragment extends Fragment {
 
         mButtonUpload = view.findViewById(R.id.btnUpload);
         mImageView = view.findViewById(R.id.imgProfile);
-        fullName = view.findViewById(R.id.extFullName);
-        email = view.findViewById(R.id.extProfileEmail);
+        fullName = view.findViewById(R.id.extProvince);
+        email = view.findViewById(R.id.extCity);
         phone = view.findViewById(R.id.extPhone);
         addressLine1 = view.findViewById(R.id.extAddress1);
         addressLine2 = view.findViewById(R.id.extAddress2);
@@ -62,6 +63,8 @@ public class ProfileFragment extends Fragment {
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        email.setText(loginMail);
+        email.setEnabled(false);
 
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +99,7 @@ public class ProfileFragment extends Fragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            mProgressBar.setProgress(0);
+//                            mProgressBar.setProgress(0);
                         }
                     }, 500);
                     Toast.makeText(getContext(), "Upload Successful!", Toast.LENGTH_LONG).show();

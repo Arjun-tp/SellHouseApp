@@ -1,16 +1,125 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".SellActivityOne">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sell Activity 1"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="vertical">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="292dp"
+            android:text="Add Primary Details"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/extAddressOne"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="45dp"
+            android:ems="10"
+            android:hint="Address Line 1"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <EditText
+            android:id="@+id/extAddressTwo"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="45dp"
+            android:ems="10"
+            android:hint="Address Line 2"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extAddressOne" />
+
+        <EditText
+            android:id="@+id/extCity"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="45dp"
+            android:ems="10"
+            android:hint="City"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extAddressTwo" />
+
+        <EditText
+            android:id="@+id/extProvince"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="45dp"
+            android:ems="10"
+            android:hint="Province"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extCity" />
+
+        <EditText
+            android:id="@+id/extCountry"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="52dp"
+            android:ems="10"
+            android:hint="Country"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extProvince" />
+
+        <EditText
+            android:id="@+id/extPostalCode"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="112dp"
+            android:layout_marginEnd="52dp"
+            android:ems="10"
+            android:hint="Postal Code"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extProvince" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="273dp"
+            android:layout_marginTop="63dp"
+            android:layout_marginEnd="44dp"
+            android:text="Next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extPostalCode" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
