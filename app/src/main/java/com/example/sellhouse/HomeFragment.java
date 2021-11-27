@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.sellhouse.buyfragment.BuyFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -14,16 +17,19 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         getActivity().setTitle("Home");
-        view.findViewById(R.id.btnSellHouse).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*Intent intent = new Intent(BuyOrSellActivity.this, SellActivityOne.class);
-                startActivity(intent);*/
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
-//                        new SellActivityOne()).commit();
-            }
-        });
+
+
+        view.findViewById(R.id.btnSellHouse).setOnClickListener(view12 -> setupFragment(new SellFragment()));
+        view.findViewById(R.id.btnBuyHouse).setOnClickListener(view1 -> setupFragment(new BuyFragment()));
+
 
         return view;
+    }
+
+    public void setupFragment(Fragment fragment) {
+        getActivity().getSupportFragmentManager()
+                .beginTransaction().replace(R.id.fragmentContainer,
+                fragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
     }
 }

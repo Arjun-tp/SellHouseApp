@@ -8,14 +8,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class SellActivityOne extends Fragment {
+import com.example.sellhouse.buyfragment.BuyFragment;
+
+public class SellFragment extends Fragment {
     @Nullable
 
     EditText address1, address2, city, province, country, postCode;
@@ -32,12 +33,12 @@ public class SellActivityOne extends Fragment {
         postCode = view.findViewById(R.id.extPostalCode);
         next = view.findViewById(R.id.btnNext);
 
-        SellActivityTwo.address1 = address1 != null ? address1.getText().toString().trim() : null;
-        SellActivityTwo.address2 = address2 != null ? address2.getText().toString().trim() : null;
-        SellActivityTwo.city = city != null ? city.getText().toString().trim() : null;
-        SellActivityTwo.province = province != null ? province.getText().toString().trim() : null;
-        SellActivityTwo.country = country != null ? country.getText().toString().trim() : null;
-        SellActivityTwo.postCode = postCode != null ? postCode.getText().toString().trim() : null;
+//        BuyFragment.address1 = address1 != null ? address1.getText().toString().trim() : null;
+//        BuyFragment.address2 = address2 != null ? address2.getText().toString().trim() : null;
+//        BuyFragment.city = city != null ? city.getText().toString().trim() : null;
+//        BuyFragment.province = province != null ? province.getText().toString().trim() : null;
+//        BuyFragment.country = country != null ? country.getText().toString().trim() : null;
+//        BuyFragment.postCode = postCode != null ? postCode.getText().toString().trim() : null;
 
 
         next.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +52,7 @@ public class SellActivityOne extends Fragment {
                 bundle.putString("country", country.getText().toString().trim());
                 bundle.putString("postCode", postCode.getText().toString().trim());
 
-                Fragment fragment = new SellActivityTwo();
+                Fragment fragment = new BuyFragment();
                 fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
