@@ -74,6 +74,8 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Successful!", Toast.LENGTH_LONG).show();
                             ProfileFragment.loginMail = email.getText().toString().trim();
+                            ProfileFragment.mobile = email.getText().toString().trim();
+                            ProfileFragment.password = email.getText().toString().trim();
                             Intent intent = new Intent(LoginActivity.this, BuyOrSellActivity.class);
                             startActivity(intent);
                         }else {

@@ -87,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(emailToFirebase, passwordToFirebase)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()){
-                        User user = new User(emailToFirebase, mobileToFirebase, passwordToFirebase);
+                        User user = new User(emailToFirebase, mobileToFirebase, passwordToFirebase, "", "", "","", "","");
                         FirebaseDatabase.getInstance().getReference("Users")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .setValue(user).addOnCompleteListener(task1 -> {
@@ -95,7 +95,6 @@ public class RegisterActivity extends AppCompatActivity {
                                         Toast.makeText(RegisterActivity.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(RegisterActivity.this, OtpActivity.class);
                                         startActivity(intent);
-
                                     } else {
                                         Toast.makeText(RegisterActivity.this, "Failed to register!", Toast.LENGTH_LONG).show();
                                     }
