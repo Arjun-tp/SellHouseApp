@@ -19,6 +19,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -68,6 +70,7 @@ public class ProfileFragment extends Fragment {
         addressLine2 = view.findViewById(R.id.extAddress2);
         postalCode = view.findViewById(R.id.extPostCode);
         mProgressBar = view.findViewById(R.id.progressBar);
+        resetPassword = view.findViewById(R.id.btnResetPassword);
 
 //        mProgressBar.;
 
@@ -119,6 +122,18 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 openFileChooser();
+            }
+        });
+
+        resetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new ResetPasswordFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentContainer, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
