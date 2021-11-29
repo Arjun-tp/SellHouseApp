@@ -77,7 +77,7 @@ public class ProfileFragment extends Fragment {
         mStorageRef = FirebaseStorage.getInstance().getReference("Users");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
 
-        mDatabaseRef.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid()));
+//        mDatabaseRef.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid()));
 
         email.setText(loginMail);
         email.setEnabled(false);

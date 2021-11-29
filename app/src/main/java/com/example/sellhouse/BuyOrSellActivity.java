@@ -2,6 +2,7 @@ package com.example.sellhouse;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,21 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         setupFragment(new HomeFragment());
+
+//        sellHouse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
+//                        new SellActivityOne()).commit();
+//            }
+//        });
+
+//        buyHouse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
     }
 
     @Override
