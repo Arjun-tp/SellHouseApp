@@ -61,7 +61,7 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
         if (item.getItemId() == R.id.nav_home) {
             setupFragment(new HomeFragment());
         } else if (item.getItemId() == R.id.sellHouse) {
-            setupFragment(new SellActivityOne());
+            setupFragment(new SellFragment());
         } else if (item.getItemId() == R.id.nav_profile) {
             setupFragment(new ProfileFragment());
         } else if (item.getItemId() == R.id.nav_notifications) {
