@@ -52,7 +52,7 @@ public class SellFragment extends Fragment {
                 bundle.putString("country", country.getText().toString().trim());
                 bundle.putString("postCode", postCode.getText().toString().trim());
 
-                Fragment fragment = new BuyFragment();
+                Fragment fragment = new SellActivityTwo();
                 fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

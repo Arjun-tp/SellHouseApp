@@ -18,7 +18,6 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         getActivity().setTitle("Home");
 
-
         view.findViewById(R.id.btnSellHouse).setOnClickListener(view12 -> setupFragment(new SellFragment()));
         view.findViewById(R.id.btnBuyHouse).setOnClickListener(view1 -> setupFragment(new BuyFragment()));
 

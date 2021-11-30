@@ -2,6 +2,7 @@ package com.example.sellhouse;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.sellhouse.buyfragment.BuyFragment;
 import com.example.sellhouse.notification.NotificationFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -38,6 +40,21 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         setupFragment(new HomeFragment());
+
+//        sellHouse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
+//                        new SellActivityOne()).commit();
+//            }
+//        });
+
+//        buyHouse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
     }
 
     @Override
@@ -46,6 +63,8 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
             setupFragment(new HomeFragment());
         } else if (item.getItemId() == R.id.sellHouse) {
             setupFragment(new SellFragment());
+        }else if (item.getItemId() == R.id.buyHouse) {
+            setupFragment(new BuyFragment());
         } else if (item.getItemId() == R.id.nav_profile) {
             setupFragment(new ProfileFragment());
         } else if (item.getItemId() == R.id.nav_notifications) {
