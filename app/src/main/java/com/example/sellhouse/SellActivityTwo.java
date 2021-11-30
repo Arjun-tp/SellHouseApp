@@ -81,6 +81,10 @@ public class SellActivityTwo extends Fragment {
         provinceHere = bundle.getString("province");
         countryHere = bundle.getString("country");
         postCodeHere = bundle.getString("postCode");
+        imageViewOne.setImageDrawable(getResources().getDrawable(R.drawable.house_placeholder));
+        imageViewTwo.setImageDrawable(getResources().getDrawable(R.drawable.house_placeholder));
+        imageViewThree.setImageDrawable(getResources().getDrawable(R.drawable.house_placeholder));
+
 
         post.setOnClickListener(new View.OnClickListener() {
             @Override

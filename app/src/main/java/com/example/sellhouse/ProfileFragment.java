@@ -59,8 +59,6 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.profile_fragment, container, false);
         getActivity().setTitle("Profile");
 
-        Log.d("===========", FirebaseAuth.getInstance().getCurrentUser().getUid());
-
         mButtonUpload = view.findViewById(R.id.btnUpload);
         mImageView = view.findViewById(R.id.imgProfile);
         fullName = view.findViewById(R.id.extProvince);
@@ -72,8 +70,6 @@ public class ProfileFragment extends Fragment {
         mProgressBar = view.findViewById(R.id.progressBar);
         resetPassword = view.findViewById(R.id.btnResetPassword);
 
-//        mProgressBar.;
-
         mStorageRef = FirebaseStorage.getInstance().getReference("Users");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -81,7 +77,7 @@ public class ProfileFragment extends Fragment {
 
         email.setText(loginMail);
         email.setEnabled(false);
-
+        mImageView.setImageDrawable(getResources().getDrawable(R.drawable.placeholder_image));
         mDatabaseRef.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid())).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -106,10 +102,9 @@ public class ProfileFragment extends Fragment {
                     postalCode.setText(postalCodeFromDb);
                 }
                 String imageFromDb = dataSnapshot.child("imageUrl").getValue(String.class);
-//                if (imageFromDb != null){
+                if (imageFromDb != null){
 //                    Picasso.with(getContext()).load(imageFromDb).into(mImageView);
-//                }
-//                Log.d("################", mobileNumberFromDb);
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
