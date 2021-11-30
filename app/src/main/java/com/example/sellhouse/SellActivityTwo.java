@@ -19,7 +19,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.sellhouse.buyfragment.BuyFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -178,6 +181,10 @@ public class SellActivityTwo extends Fragment {
                             imageViewOneUri != null ? imageViewOneUri.toString() : "", imageViewTwoUri != null ? imageViewTwoUri.toString() : "", imageViewThreeUri != null ? imageViewThreeUri.toString() : "");
                     String uploadId = mDatabaseRef.push().getKey();
                     mDatabaseRef.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid())).setValue(upload);
+                    Toast.makeText(getContext(), "Property Added Successfully!", Toast.LENGTH_LONG).show();
+
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
+                            new BuyFragment()).commit();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

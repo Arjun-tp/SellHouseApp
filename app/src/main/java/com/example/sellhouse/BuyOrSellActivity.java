@@ -13,6 +13,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.sellhouse.buyfragment.BuyFragment;
 import com.example.sellhouse.notification.NotificationFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -62,6 +63,8 @@ public class BuyOrSellActivity extends AppCompatActivity implements NavigationVi
             setupFragment(new HomeFragment());
         } else if (item.getItemId() == R.id.sellHouse) {
             setupFragment(new SellFragment());
+        }else if (item.getItemId() == R.id.buyHouse) {
+            setupFragment(new BuyFragment());
         } else if (item.getItemId() == R.id.nav_profile) {
             setupFragment(new ProfileFragment());
         } else if (item.getItemId() == R.id.nav_notifications) {
