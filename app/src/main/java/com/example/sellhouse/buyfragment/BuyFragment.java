@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sellhouse.R;
-import com.example.sellhouse.model.House;
+import com.example.sellhouse.model.House_Model;
 
 import java.util.ArrayList;
 
@@ -38,11 +38,11 @@ public class BuyFragment extends Fragment {
     }
 
     private void initViews() {
-        ArrayList<House> animalNames = new ArrayList<>();
-        animalNames.add(new House("$1,200,000", R.drawable.home, "35 Hanover Street\nHuntington Station, NY 11746", 3, 1));
-        animalNames.add(new House("$5,800,000", R.drawable.home, "646 W. Mulberry Court\n Bronx, NY 10472", 2, 1));
-        animalNames.add(new House("$2,000,000", R.drawable.home, "623 Golf Rd.\n Tonawanda, NY 14150", 2, 1));
-        animalNames.add(new House("$6,999,999", R.drawable.home, "8910 Hickory Ave.\nPatchogue, NY 11772", 2, 1));
+        ArrayList<House_Model> animalNames = new ArrayList<>();
+        animalNames.add(new House_Model("$1,200,000", R.drawable.home, "35 Hanover Street\nHuntington Station, NY 11746", 3, 1));
+        animalNames.add(new House_Model("$5,800,000", R.drawable.home, "646 W. Mulberry Court\n Bronx, NY 10472", 2, 1));
+        animalNames.add(new House_Model("$2,000,000", R.drawable.home, "623 Golf Rd.\n Tonawanda, NY 14150", 2, 1));
+        animalNames.add(new House_Model("$6,999,999", R.drawable.home, "8910 Hickory Ave.\nPatchogue, NY 11772", 2, 1));
         buyHouseRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         BuyHouseAdapter adapter = new BuyHouseAdapter(this.getActivity(), animalNames);
         buyHouseRecyclerView.setAdapter(adapter);

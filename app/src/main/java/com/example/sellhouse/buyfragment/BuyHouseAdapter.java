@@ -9,19 +9,20 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sellhouse.House;
 import com.example.sellhouse.R;
-import com.example.sellhouse.model.House;
+import com.example.sellhouse.model.House_Model;
 
 import java.util.List;
 
 public class BuyHouseAdapter extends RecyclerView.Adapter<BuyHouseAdapter.ViewHolder> {
 
-    private List<House> mData;
+    private List<House_Model> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    BuyHouseAdapter(Context context, List<House> data) {
+    BuyHouseAdapter(Context context, List<House_Model> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -36,11 +37,12 @@ public class BuyHouseAdapter extends RecyclerView.Adapter<BuyHouseAdapter.ViewHo
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.price.setText(mData.get(position).price);
-        holder.mImageView.setImageResource(mData.get(position).image);
-        holder.address.setText(mData.get(position).address);
-        holder.bedroomTextview.setText(mData.get(position).bedroom + " BedRooms");
-        holder.bathroomTextView.setText(mData.get(position).bathroom + " Bathrooms");
+        House_Model house = mData.get(position);
+        holder.price.setText(house.price);
+        holder.mImageView.setImageResource(Integer.parseInt(String.valueOf(house.image)));
+        holder.address.setText(house.address);
+        holder.bedroomTextview.setText(house.bedroom + " BedRooms");
+        holder.bathroomTextView.setText(house.bathroom + " Bathrooms");
     }
 
     // total number of rows

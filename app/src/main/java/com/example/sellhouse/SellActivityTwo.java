@@ -184,11 +184,16 @@ public class SellActivityTwo extends Fragment {
                             description.getText().toString().trim(),
                             imageViewOneUri != null ? imageViewOneUri.toString() : "", imageViewTwoUri != null ? imageViewTwoUri.toString() : "", imageViewThreeUri != null ? imageViewThreeUri.toString() : "");
                     String uploadId = mDatabaseRef.push().getKey();
-                    mDatabaseRef.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid())).setValue(upload);
-                    Toast.makeText(getContext(), "Property Added Successfully!", Toast.LENGTH_LONG).show();
-
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
-                            new BuyFragment()).commit();
+                    FirebaseDatabase.getInstance().getReference("House").child(uploadId)
+                            .setValue(upload).addOnCompleteListener(task1 -> {
+                        if (task1.isSuccessful()){
+                            Toast.makeText(getContext(), "Property Added Successfully!", Toast.LENGTH_LONG).show();
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
+                                    new BuyFragment()).commit();
+                        } else {
+                            Toast.makeText(getContext(), "Failed to Add!", Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
