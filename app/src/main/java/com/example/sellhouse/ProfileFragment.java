@@ -175,6 +175,16 @@ public class ProfileFragment extends Fragment {
 //                    mStorageRef.getDownloadUrl().toString()
                     String uploadId = mDatabaseRef.push().getKey();
                     mDatabaseRef.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid())).setValue(upload);
+
+
+                    Fragment fragment = new HomeFragment();
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragmentContainer, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                    Toast.makeText(getContext(), "Profile Updated!", Toast.LENGTH_LONG).show();
+
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
