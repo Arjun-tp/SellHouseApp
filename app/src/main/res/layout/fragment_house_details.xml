@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/blackCol">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,15 +24,6 @@
                 android:layout_height="@dimen/backPosterHieght"
                 tools:background="#FFFFFF" />
 
-            <ImageView
-                android:id="@+id/poster"
-                android:layout_width="@dimen/details_poster_width"
-                android:layout_height="@dimen/details_poster_height"
-                android:layout_marginStart="@dimen/margin_large"
-                android:layout_marginLeft="@dimen/margin_large"
-                android:layout_marginTop="@dimen/details_poster_margin_top"
-                tools:background="#FFFFFF" />
-
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
@@ -44,15 +34,14 @@
                 android:layout_marginTop="@dimen/margin_default"
                 android:layout_marginEnd="@dimen/margin_large"
                 android:layout_marginRight="@dimen/margin_large"
-                android:layout_toEndOf="@id/poster"
-                android:layout_toRightOf="@id/poster"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:textColor="@color/TextColorSplash"
-                tools:text="The house name" />
+                android:textStyle="bold"
+                tools:text="price" />
 
             <TextView
-                android:id="@+id/release_date"
+                android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"
@@ -61,40 +50,50 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="@dimen/margin_default"
                 android:layout_marginRight="@dimen/margin_default"
-                android:layout_toEndOf="@id/poster"
-                android:layout_toRightOf="@id/poster"
                 android:textColor="@color/TextColorSplash"
-                tools:text="price" />
+                android:textStyle="bold"
+                tools:text="address" />
+
+            <TextView
+                android:id="@+id/bedroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:textColor="@color/TextColorSplash"
+                android:textStyle="bold"
+                tools:text="3 Bed" />
+
+            <TextView
+                android:id="@+id/bathroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bedroom"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:textColor="@color/TextColorSplash"
+                android:textStyle="bold"
+                tools:text="3 bathroom" />
+
+
 
             <LinearLayout
                 android:id="@+id/rating_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/release_date"
                 android:layout_marginStart="@dimen/margin_large"
                 android:layout_marginLeft="@dimen/margin_large"
                 android:layout_marginTop="-8dp"
-                android:layout_toEndOf="@id/poster"
-                android:layout_toRightOf="@id/poster"
                 android:clipChildren="false"
                 android:gravity="bottom"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/rating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/TextColorSplash"
-                    tools:text="7" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_default"
-                    android:text="@string/ratings"
-                    android:textColor="@color/TextColorSplash" />
-
-            </LinearLayout>
+                android:orientation="horizontal" />
 
             <TextView
                 android:id="@+id/overview"
@@ -110,6 +109,7 @@
                 android:lineSpacingMultiplier="@dimen/body_text_line_spacing"
                 android:textColor="@color/TextColorSplash"
                 tools:text=" The Overview of house" />
+
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

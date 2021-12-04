@@ -36,8 +36,7 @@ public class PropertyDetailsFragment extends Fragment {
 
     static androidx.appcompat.widget.Toolbar toolbarMovie;
     Activity activity;
-    TextView overview;
-    ImageView details_image,backdrop;
+    ImageView backdrop;
     public PropertyDetailsFragment() {
 
     }
@@ -65,13 +64,21 @@ public class PropertyDetailsFragment extends Fragment {
         }
         Intent intent = getActivity().getIntent();
         House_Model HouseData =(House_Model)intent.getParcelableExtra("houseDetails");
-        TextView textView = view.findViewById(R.id.overview);
-        Toast.makeText(getContext(),HouseData.address+"" , Toast.LENGTH_SHORT).show();
-        textView.setText(HouseData.address);
-        details_image = view.findViewById(R.id.poster);
-        backdrop = view.findViewById(R.id.backdrop);
 
-        Picasso.with(view.getContext()).load(HouseData.image).into(details_image);
+        TextView title = view.findViewById(R.id.title);
+        title.setText(HouseData.price);
+
+        TextView address = view.findViewById(R.id.address);
+        address.setText(HouseData.address);
+
+        TextView bedroom = view.findViewById(R.id.bedroom);
+        bedroom.setText(HouseData.bedroom +" Bedroom");
+
+        TextView bathroom = view.findViewById(R.id.bathroom);
+        bathroom.setText(HouseData.bathroom + " Bathroom");
+
+
+        backdrop = view.findViewById(R.id.backdrop);
         Picasso.with(view.getContext()).load(HouseData.image).into(backdrop);
 
         return view;
