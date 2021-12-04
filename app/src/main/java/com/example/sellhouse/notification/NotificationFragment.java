@@ -31,11 +31,11 @@ public class NotificationFragment extends Fragment {
     }
 
     private void initViews() {
-        ArrayList<Notification> animalNames = new ArrayList<>();
-        animalNames.add(new Notification("Early Bird Offer: 10%", R.drawable.photo));
-        animalNames.add(new Notification("Offer: 20%", R.drawable.photo));
+        ArrayList<Notification> notificationList = new ArrayList<>();
+        notificationList.add(new Notification("Early Bird Offer: 10%","", R.drawable.photo));
+        notificationList.add(new Notification("Offer: 20%", "", R.drawable.photo));
         notificationRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        NotificationAdapter adapter = new NotificationAdapter(this.getActivity(), animalNames);
+        NotificationAdapter adapter = new NotificationAdapter(this.getActivity(), notificationList);
         notificationRecyclerView.setAdapter(adapter);
     }
 }

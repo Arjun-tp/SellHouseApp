@@ -23,6 +23,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.sellhouse.buyfragment.BuyFragment;
+import com.example.sellhouse.model.Notification;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,6 +55,7 @@ public class SellActivityTwo extends Fragment {
     public static String country = "";
     public static String postCode = "";
     private DatabaseReference mDatabaseRef;
+    private DatabaseReference mDatabaseRefNotification;
     private StorageReference mStorageRef;
     private Uri imageViewOneUri, imageViewTwoUri, imageViewThreeUri;
     private String address1Here, address2Here, cityHere, provinceHere, countryHere, postCodeHere;
@@ -71,6 +73,7 @@ public class SellActivityTwo extends Fragment {
         imageViewThree = view.findViewById(R.id.imageView33);
         post = view.findViewById(R.id.btnPost);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("House");
+        mDatabaseRefNotification = FirebaseDatabase.getInstance().getReference("Notification");
         mStorageRef = FirebaseStorage.getInstance().getReference("House");
 //        dummy = view.findViewById(R.id.txvDummy);
 
@@ -188,6 +191,13 @@ public class SellActivityTwo extends Fragment {
                             .setValue(upload).addOnCompleteListener(task1 -> {
                         if (task1.isSuccessful()){
                             Toast.makeText(getContext(), "Property Added Successfully!", Toast.LENGTH_LONG).show();
+                            Notification notificationUpload = new Notification(
+                                    "New Property Added!!",
+                                    address1Here + " "+cityHere + " "+ provinceHere,
+                                    R.drawable.home
+                            );
+                            FirebaseDatabase.getInstance().getReference("Notification").child(uploadId)
+                                    .setValue(notificationUpload);
                             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
                                     new BuyFragment()).commit();
                         } else {

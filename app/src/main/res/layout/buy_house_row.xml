@@ -23,7 +23,7 @@
 
 
             <ImageView
-                android:id="@+id/mImageView"
+                android:id="@+id/mImageViewNotification"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:adjustViewBounds="true"
@@ -43,7 +43,7 @@
                 android:textColor="@color/primaryColor"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/mImageView"
+                app:layout_constraintStart_toEndOf="@id/mImageViewNotification"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -56,7 +56,7 @@
                 android:textSize="20sp"
                 android:textStyle="normal"
                 app:layout_constraintBottom_toTopOf="@+id/bedroomTextview"
-                app:layout_constraintStart_toEndOf="@id/mImageView"
+                app:layout_constraintStart_toEndOf="@id/mImageViewNotification"
                 app:layout_constraintTop_toBottomOf="@+id/price" />
 
             <TextView
@@ -70,7 +70,7 @@
                 android:textColor="#597586"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/mImageView" />
+                app:layout_constraintStart_toEndOf="@id/mImageViewNotification" />
 
             <TextView
                 android:id="@+id/bathroomTextView"
