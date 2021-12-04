@@ -36,7 +36,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.myTextView.setText(mData.get(position).name);
+        holder.title.setText(mData.get(position).title);
+        holder.description.setText(mData.get(position).description);
         holder.mImageView.setImageResource(mData.get(position).image);
     }
 
@@ -49,13 +50,14 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+        TextView title, description;
         ImageView mImageView;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.tvAnimalName);
-            mImageView = itemView.findViewById(R.id.mImageView);
+            title = itemView.findViewById(R.id.txvTitle);
+            description = itemView.findViewById(R.id.txvdescription);
+            mImageView = itemView.findViewById(R.id.mImageViewNotification);
             itemView.setOnClickListener(this);
         }
 

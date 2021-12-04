@@ -3,12 +3,14 @@ package com.example.sellhouse.model;
 import androidx.annotation.DrawableRes;
 
 public class Notification {
-    public final String name;
+    public final String title;
+    public final String description;
     @DrawableRes
     public final int image;
 
-    public Notification(final String name, @DrawableRes final int image) {
-        this.name = name;
+    public Notification(String title, String description, @DrawableRes final int image) {
+        this.title = title;
+        this.description = description;
         this.image = image;
     }
 }

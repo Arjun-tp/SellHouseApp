@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sellhouse.House;
 import com.example.sellhouse.R;
 import com.example.sellhouse.model.House_Model;
 
@@ -60,7 +59,7 @@ public class BuyHouseAdapter extends RecyclerView.Adapter<BuyHouseAdapter.ViewHo
         ViewHolder(View itemView) {
             super(itemView);
             price = itemView.findViewById(R.id.price);
-            mImageView = itemView.findViewById(R.id.mImageView);
+            mImageView = itemView.findViewById(R.id.mImageViewNotification);
             address = itemView.findViewById(R.id.address);
             bedroomTextview = itemView.findViewById(R.id.bedroomTextview);
             bathroomTextView = itemView.findViewById(R.id.bathroomTextView);
