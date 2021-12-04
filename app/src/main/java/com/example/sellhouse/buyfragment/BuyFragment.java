@@ -6,6 +6,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -59,6 +60,8 @@ public class BuyFragment extends Fragment {
                 House_Model houseData = animalNames.get(position);
                 Intent intent = new Intent(getActivity(), PropertyDetailsActivity.class);
                 House_Model houseDetails = new House_Model(houseData.price, houseData.image,houseData.address,houseData.bedroom,houseData.bathroom);
+                Log.d("houseDetails", "onClick: "+houseDetails);
+                Log.d("houseData", "houseData: "+houseData);
                 intent.putExtra("houseDetails", houseDetails);
                 startActivity(intent);
             }

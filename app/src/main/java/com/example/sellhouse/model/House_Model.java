@@ -16,18 +16,23 @@ public class House_Model  implements Parcelable {
     public House_Model(final String price, @DrawableRes final int image, String address, int bedroom, int bathroom) {
         this.price = price;
         this.image = image;
-        this.bedroom = bedroom;
         this.address = address;
+        this.bedroom = bedroom;
         this.bathroom = bathroom;
     }
 
-    protected House_Model(Parcel in) {
-        price = in.readString();
-        address = in.readString();
-        bedroom = in.readInt();
-        bathroom = in.readInt();
-        image = in.readInt();
+    public House_Model(Parcel in){
+        String[] data = new String[5];
+
+        in.readStringArray(data);
+        // the order needs to be the same as in writeToParcel() method
+        this.price = data[0];
+        this.image = Integer.parseInt(data[1]);
+        this.bedroom = Integer.parseInt(data[2]);
+        this.address = data[3];
+        this.bathroom = Integer.parseInt(data[4]);
     }
+
 
     public static final Creator<House_Model> CREATOR = new Creator<House_Model>() {
         @Override
@@ -48,10 +53,11 @@ public class House_Model  implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringArray(new String[] {this.price,
+        dest.writeStringArray(new String[] {
+                this.price,
                 String.valueOf(this.image),
                 String.valueOf(this.bedroom),
-        this.address,
+                String.valueOf(this.address),
                 String.valueOf(this.bathroom)});
     }
 }

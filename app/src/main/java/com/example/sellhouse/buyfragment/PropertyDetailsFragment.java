@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -23,8 +25,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sellhouse.PropertyDetailsActivity;
 import com.example.sellhouse.R;
+import com.example.sellhouse.RegisterActivity;
 import com.example.sellhouse.model.House_Model;
 import com.squareup.picasso.Picasso;
+
 
 import java.util.ArrayList;
 
@@ -32,6 +36,8 @@ public class PropertyDetailsFragment extends Fragment {
 
     static androidx.appcompat.widget.Toolbar toolbarMovie;
     Activity activity;
+    TextView overview;
+    ImageView details_image,backdrop;
     public PropertyDetailsFragment() {
 
     }
@@ -48,6 +54,7 @@ public class PropertyDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_house_details, container, false);
 //        ButterKnife.bind(this, view);
+
         getActivity().setTitle("House Details");
 
         try {
@@ -58,15 +65,15 @@ public class PropertyDetailsFragment extends Fragment {
         }
         Intent intent = getActivity().getIntent();
         House_Model HouseData =(House_Model)intent.getParcelableExtra("houseDetails");
-//        title.setText(HouseData.address.toString());
-//
-//        getActivity().setTitle(movie.getTitle().toString());
-//
-//        release_date.setText(movie.getRelease_date().toString());
-//        overview.setText(movie.getOverview().toString());
-//        rating.setText(movie.getVote_average().toString() + "/");
-//        Picasso.with(view.getContext()).load(movie.getImg()).into(poster);
-//        Picasso.with(view.getContext()).load(movie.getBackdrop_path()).into(backdrop);
+        TextView textView = view.findViewById(R.id.overview);
+        Toast.makeText(getContext(),HouseData.address+"" , Toast.LENGTH_SHORT).show();
+        textView.setText(HouseData.address);
+        details_image = view.findViewById(R.id.poster);
+        backdrop = view.findViewById(R.id.backdrop);
+
+        Picasso.with(view.getContext()).load(HouseData.image).into(details_image);
+        Picasso.with(view.getContext()).load(HouseData.image).into(backdrop);
+
         return view;
     }
 
