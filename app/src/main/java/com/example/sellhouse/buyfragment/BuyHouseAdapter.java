@@ -37,11 +37,11 @@ public class BuyHouseAdapter extends RecyclerView.Adapter<BuyHouseAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         House_Model house = mData.get(position);
-        holder.price.setText(house.price);
+        holder.price.setText(String.format("$%s", house.getPrice()));
         holder.mImageView.setImageResource(Integer.parseInt(String.valueOf(house.image)));
-        holder.address.setText(house.address);
-        holder.bedroomTextview.setText(house.bedroom + " BedRooms");
-        holder.bathroomTextView.setText(house.bathroom + " Bathrooms");
+        holder.address.setText(house.getAddress1());
+        holder.bedroomTextview.setText(String.format("%s BedRooms", house.getNoOfBedrooms()));
+        holder.bathroomTextView.setText(String.format("%s Bathrooms", house.getNoOfWashrooms()));
     }
 
     // total number of rows
