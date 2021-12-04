@@ -3,18 +3,40 @@ package com.example.sellhouse.model;
 import androidx.annotation.DrawableRes;
 
 public class House_Model {
-    public final String price;
-    public final String address;
-    public final int bedroom;
-    public final int bathroom;
+    public String price;
+    public String address1;
+    public String noOfBedrooms;
+    public String noOfWashrooms;
     @DrawableRes
-    public final int image;
+    public int image;
 
-    public House_Model(final String price, @DrawableRes final int image, String address, int bedroom, int bathroom) {
+    public House_Model(final String price, @DrawableRes final int image, String address1, String noOfBedrooms, String noOfWashrooms) {
         this.price = price;
         this.image = image;
-        this.bedroom = bedroom;
-        this.address = address;
-        this.bathroom = bathroom;
+        this.noOfBedrooms = noOfBedrooms;
+        this.address1 = address1;
+        this.noOfWashrooms = noOfWashrooms;
+    }
+
+    public House_Model(){}
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public String getNoOfBedrooms() {
+        return noOfBedrooms;
+    }
+
+    public String getNoOfWashrooms() {
+        return noOfWashrooms;
+    }
+
+    public int getImage() {
+        return image;
     }
 }

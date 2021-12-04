@@ -36,8 +36,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.title.setText(mData.get(position).title);
-        holder.description.setText(mData.get(position).description);
+        Notification notificationModel = mData.get(position);
+        holder.title.setText(notificationModel.getTitle());
+        holder.description.setText(notificationModel.getDescription());
         holder.mImageView.setImageResource(mData.get(position).image);
     }
 
