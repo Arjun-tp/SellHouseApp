@@ -5,20 +5,42 @@ import android.os.Parcelable;
 
 import androidx.annotation.DrawableRes;
 
-public class House_Model  implements Parcelable {
-    public final String price;
-    public final String address;
-    public final int bedroom;
-    public final int bathroom;
+public class House_Model implements Parcelable {
+    public String price;
+    public String address1;
+    public String noOfBedrooms;
+    public String noOfWashrooms;
     @DrawableRes
-    public final int image;
+    public int image;
 
-    public House_Model(final String price, @DrawableRes final int image, String address, int bedroom, int bathroom) {
+    public House_Model(final String price, @DrawableRes final int image, String address1, String noOfBedrooms, String noOfWashrooms) {
         this.price = price;
         this.image = image;
-        this.address = address;
-        this.bedroom = bedroom;
-        this.bathroom = bathroom;
+        this.noOfBedrooms = noOfBedrooms;
+        this.address1 = address1;
+        this.noOfWashrooms = noOfWashrooms;
+    }
+
+    public House_Model(){}
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public String getNoOfBedrooms() {
+        return noOfBedrooms;
+    }
+
+    public String getNoOfWashrooms() {
+        return noOfWashrooms;
+    }
+
+    public int getImage() {
+        return image;
     }
 
     public House_Model(Parcel in){
@@ -28,9 +50,9 @@ public class House_Model  implements Parcelable {
         // the order needs to be the same as in writeToParcel() method
         this.price = data[0];
         this.image = Integer.parseInt(data[1]);
-        this.bedroom = Integer.parseInt(data[2]);
-        this.address = data[3];
-        this.bathroom = Integer.parseInt(data[4]);
+        this.noOfBedrooms = data[2];
+        this.address1 = data[3];
+        this.noOfWashrooms = data[4];
     }
 
 

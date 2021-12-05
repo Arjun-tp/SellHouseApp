@@ -22,7 +22,7 @@
 
 
             <ImageView
-                android:id="@+id/mImageView"
+                android:id="@+id/mImageViewNotification"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:adjustViewBounds="true"
@@ -33,7 +33,7 @@
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView
-                android:id="@+id/tvAnimalName"
+                android:id="@+id/txvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -43,11 +43,11 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/mImageView"
+                app:layout_constraintStart_toEndOf="@id/mImageViewNotification"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvAnimalName2"
+                android:id="@+id/txvdescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -56,8 +56,8 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/mImageView"
-                app:layout_constraintTop_toBottomOf="@+id/tvAnimalName"
+                app:layout_constraintStart_toEndOf="@id/mImageViewNotification"
+                app:layout_constraintTop_toBottomOf="@+id/txvTitle"
                 tools:text="@tools:sample/lorem/random" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
