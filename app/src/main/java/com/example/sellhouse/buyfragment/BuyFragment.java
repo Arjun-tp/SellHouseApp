@@ -39,7 +39,8 @@ public class BuyFragment extends Fragment {
     ImageView gridBTN;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     DatabaseReference root = db.getReference().child("House");
-
+    BuyHouseAdapter adapter;
+    BuyHouseGridAdapter gridAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,7 +65,8 @@ public class BuyFragment extends Fragment {
 //        houseLists.add(new House_Model("$2,000,000", R.drawable.home, "623 Golf Rd.\n Tonawanda, NY 14150", 2, 1));
 //        houseLists.add(new House_Model("$6,999,999", R.drawable.home, "8910 Hickory Ave.\nPatchogue, NY 11772", 2, 1));
         buyHouseRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        BuyHouseAdapter adapter = new BuyHouseAdapter(this.getActivity(), houseLists);
+        adapter = new BuyHouseAdapter(this.getActivity(), houseLists);
+        gridAdapter = new BuyHouseGridAdapter(this.getActivity(), houseLists);
         buyHouseRecyclerView.setAdapter(adapter);
         buyHouseRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity().getApplicationContext(), buyHouseRecyclerView, new ClickListener() {
             @Override
@@ -92,6 +94,7 @@ public class BuyFragment extends Fragment {
                     houseLists.add(nModel);
                 }
                 adapter.notifyDataSetChanged();
+                gridAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -108,15 +111,19 @@ public class BuyFragment extends Fragment {
     }
 
     private void chooseGridRecyclerView() {
+        buyHouseRecyclerView.setAdapter(gridAdapter);
         Drawable mIcon= ContextCompat.getDrawable(getActivity(), R.drawable.ic_grid);
         mIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.grey), PorterDuff.Mode.SRC_IN);
         gridBTN.setImageDrawable(mIcon);
+
     }
 
     private void chooseListRecyclerView() {
+        buyHouseRecyclerView.setAdapter(adapter);
         Drawable mIcon= ContextCompat.getDrawable(getActivity(), R.drawable.ic_grid);
         mIcon.setColorFilter(ContextCompat.getColor(getActivity(), R.color.grey), PorterDuff.Mode.SRC_IN);
         gridBTN.setImageDrawable(mIcon);
+
     }
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
