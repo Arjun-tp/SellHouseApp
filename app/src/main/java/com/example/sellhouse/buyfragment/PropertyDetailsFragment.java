@@ -69,10 +69,10 @@ public class PropertyDetailsFragment extends Fragment {
         title.setText("Brand New Bunglow with two bedroom");
 
         TextView price = view.findViewById(R.id.price);
-        price.setText(HouseData.price);
+        price.setText(String.format("$%s", HouseData.getPrice()));
 
         TextView address = view.findViewById(R.id.address);
-        address.setText(HouseData.address1);
+        address.setText("Address :"+ HouseData.address1);
 
         TextView bedroom = view.findViewById(R.id.bedroom);
         bedroom.setText(HouseData.noOfBedrooms +" Bedroom");

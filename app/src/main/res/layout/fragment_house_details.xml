@@ -15,13 +15,14 @@
             android:id="@+id/scroll_view_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipChildren="false"
-            android:paddingBottom="@dimen/marginFabMenu">
+            android:clipChildren="false">
 
             <ImageView
                 android:id="@+id/backdrop"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/backPosterHieght"
+                android:src="@drawable/home"
+                android:scaleType="fitXY"
                 tools:background="#FFFFFF" />
 
             <TextView
@@ -34,7 +35,6 @@
                 android:layout_marginTop="@dimen/margin_default"
                 android:layout_marginEnd="@dimen/margin_large"
                 android:layout_marginRight="@dimen/margin_large"
-                android:capitalize="sentences"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:textColor="@color/TextColorSplash"

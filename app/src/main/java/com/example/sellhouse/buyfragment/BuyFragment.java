@@ -74,8 +74,8 @@ public class BuyFragment extends Fragment {
                 House_Model houseData = houseLists.get(position);
                 Intent intent = new Intent(getActivity(), PropertyDetailsActivity.class);
                 House_Model houseDetails = new House_Model(houseData.price, houseData.image,houseData.address1,houseData.noOfBedrooms,houseData.noOfWashrooms);
-                Log.d("houseDetails", "onClick: "+houseDetails);
-                Log.d("houseData", "houseData: "+houseData);
+                Log.d("houseDetails", "onClick: "+houseDetails.image);
+                Log.d("houseData", "houseData: "+houseData.image);
                 intent.putExtra("houseDetails", houseDetails);
                 startActivity(intent);
             }
@@ -92,6 +92,7 @@ public class BuyFragment extends Fragment {
                 for (DataSnapshot dataSnapshot : snapShot.getChildren()){
                     House_Model nModel = dataSnapshot.getValue(House_Model.class);
                     houseLists.add(nModel);
+                    Log.d("nModel : %v", String.valueOf(nModel.image));
                 }
                 adapter.notifyDataSetChanged();
                 gridAdapter.notifyDataSetChanged();

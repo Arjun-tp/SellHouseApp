@@ -38,10 +38,10 @@ public class BuyHouseGridAdapter extends RecyclerView.Adapter<BuyHouseGridAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         House_Model house = mData.get(position);
         holder.price.setText(String.format("$%s", house.getPrice()));
-        holder.mImageView.setImageResource(Integer.parseInt(String.valueOf(house.image)));
+//        holder.mImageView.setImageResource(Integer.parseInt(String.valueOf(house.image)));
         holder.address.setText(house.getAddress1());
-        holder.bedroomTextview.setText(String.format("%s BedRooms", house.getNoOfBedrooms()));
-        holder.bathroomTextView.setText(String.format("%s Bathrooms", house.getNoOfWashrooms()));
+        holder.bedroomTextview.setText(String.format("%s Bed", house.getNoOfBedrooms()));
+        holder.bathroomTextView.setText(String.format("%s Bath", house.getNoOfWashrooms()));
     }
 
     // total number of rows

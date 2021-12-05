@@ -11,9 +11,10 @@ public class House_Model implements Parcelable {
     public String noOfBedrooms;
     public String noOfWashrooms;
     @DrawableRes
-    public int image;
+    public int imageUrl;
+    public String image;
 
-    public House_Model(final String price, @DrawableRes final int image, String address1, String noOfBedrooms, String noOfWashrooms) {
+    public House_Model(final String price,  String image, String address1, String noOfBedrooms, String noOfWashrooms) {
         this.price = price;
         this.image = image;
         this.noOfBedrooms = noOfBedrooms;
@@ -39,7 +40,7 @@ public class House_Model implements Parcelable {
         return noOfWashrooms;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
@@ -49,7 +50,7 @@ public class House_Model implements Parcelable {
         in.readStringArray(data);
         // the order needs to be the same as in writeToParcel() method
         this.price = data[0];
-        this.image = Integer.parseInt(data[1]);
+        this.image = data[1];
         this.noOfBedrooms = data[2];
         this.address1 = data[3];
         this.noOfWashrooms = data[4];
