@@ -12,9 +12,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.sellhouse.buyfragment.PropertyDetailsFragment;
 
-/**
- * Created by sagar on 7/2/16.
- */
 public class PropertyDetailsActivity extends AppCompatActivity {
 
     Toolbar mActionBarToolbar;
