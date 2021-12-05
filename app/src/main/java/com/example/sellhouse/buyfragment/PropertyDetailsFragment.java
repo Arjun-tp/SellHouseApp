@@ -66,7 +66,10 @@ public class PropertyDetailsFragment extends Fragment {
         House_Model HouseData =(House_Model)intent.getParcelableExtra("houseDetails");
 
         TextView title = view.findViewById(R.id.title);
-        title.setText(HouseData.price);
+        title.setText("Brand New Bunglow with two bedroom");
+
+        TextView price = view.findViewById(R.id.price);
+        price.setText(HouseData.price);
 
         TextView address = view.findViewById(R.id.address);
         address.setText(HouseData.address);
@@ -76,6 +79,13 @@ public class PropertyDetailsFragment extends Fragment {
 
         TextView bathroom = view.findViewById(R.id.bathroom);
         bathroom.setText(HouseData.bathroom + " Bathroom");
+
+        TextView about = view.findViewById(R.id.about);
+        about.setText("About");
+
+
+        TextView overview = view.findViewById(R.id.overview);
+        overview.setText("This is fully furnished modern masterpiece by world renowned Architect Paul McClean");
 
 
         backdrop = view.findViewById(R.id.backdrop);
