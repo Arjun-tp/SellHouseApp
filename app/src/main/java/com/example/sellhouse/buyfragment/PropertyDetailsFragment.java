@@ -72,13 +72,13 @@ public class PropertyDetailsFragment extends Fragment {
         price.setText(HouseData.price);
 
         TextView address = view.findViewById(R.id.address);
-        address.setText(HouseData.address);
+        address.setText(HouseData.address1);
 
         TextView bedroom = view.findViewById(R.id.bedroom);
-        bedroom.setText(HouseData.bedroom +" Bedroom");
+        bedroom.setText(HouseData.noOfBedrooms +" Bedroom");
 
         TextView bathroom = view.findViewById(R.id.bathroom);
-        bathroom.setText(HouseData.bathroom + " Bathroom");
+        bathroom.setText(HouseData.noOfWashrooms + " Bathroom");
 
         TextView about = view.findViewById(R.id.about);
         about.setText("About");
@@ -88,8 +88,8 @@ public class PropertyDetailsFragment extends Fragment {
         overview.setText("This is fully furnished modern masterpiece by world renowned Architect Paul McClean");
 
 
-        backdrop = view.findViewById(R.id.backdrop);
-        Picasso.with(view.getContext()).load(HouseData.image).into(backdrop);
+//        backdrop = view.findViewById(R.id.backdrop);
+//        Picasso.with(view.getContext()).load(HouseData.image).into(backdrop);
 
         return view;
     }

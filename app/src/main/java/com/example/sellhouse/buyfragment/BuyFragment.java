@@ -69,9 +69,9 @@ public class BuyFragment extends Fragment {
         buyHouseRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity().getApplicationContext(), buyHouseRecyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                House_Model houseData = animalNames.get(position);
+                House_Model houseData = houseLists.get(position);
                 Intent intent = new Intent(getActivity(), PropertyDetailsActivity.class);
-                House_Model houseDetails = new House_Model(houseData.price, houseData.image,houseData.address,houseData.bedroom,houseData.bathroom);
+                House_Model houseDetails = new House_Model(houseData.price, houseData.image,houseData.address1,houseData.noOfBedrooms,houseData.noOfWashrooms);
                 Log.d("houseDetails", "onClick: "+houseDetails);
                 Log.d("houseData", "houseData: "+houseData);
                 intent.putExtra("houseDetails", houseDetails);

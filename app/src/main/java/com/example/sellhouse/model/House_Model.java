@@ -78,8 +78,8 @@ public class House_Model implements Parcelable {
         dest.writeStringArray(new String[] {
                 this.price,
                 String.valueOf(this.image),
-                String.valueOf(this.bedroom),
-                String.valueOf(this.address),
-                String.valueOf(this.bathroom)});
+                String.valueOf(this.noOfBedrooms),
+                String.valueOf(this.address1),
+                String.valueOf(this.noOfWashrooms)});
     }
 }
