@@ -9,17 +9,25 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sellhouse.FilterFragment;
+import com.example.sellhouse.HomeFragment;
 import com.example.sellhouse.PropertyDetailsActivity;
 import com.example.sellhouse.R;
 import com.example.sellhouse.model.House_Model;
@@ -56,10 +64,39 @@ public class BuyFragment extends Fragment {
         return view;
     }
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.top_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_filter){
+            Fragment fragment = new FilterFragment();
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentContainer, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+        if (id == R.id.action_search){
+            Log.d("Search", "Here");
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void initViews() {
         ArrayList<House_Model> houseLists = new ArrayList<>();
-
-
 //        houseLists.add(new House_Model("$1,200,000", R.drawable.home, "35 Hanover Street\nHuntington Station, NY 11746", 3, 1));
 //        houseLists.add(new House_Model("$5,800,000", R.drawable.home, "646 W. Mulberry Court\n Bronx, NY 10472", 2, 1));
 //        houseLists.add(new House_Model("$2,000,000", R.drawable.home, "623 Golf Rd.\n Tonawanda, NY 14150", 2, 1));

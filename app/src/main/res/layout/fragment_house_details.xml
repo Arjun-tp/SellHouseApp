@@ -37,7 +37,8 @@
                 android:layout_marginRight="@dimen/margin_large"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="@color/TextColorSplash"
+                android:textColor="@color/primaryColor"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 tools:text="title" />
 
@@ -53,7 +54,8 @@
                 android:layout_marginRight="@dimen/margin_large"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="@color/TextColorSplash"
+                android:textColor="@color/primaryColor"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 tools:text="price" />
 
@@ -67,7 +69,8 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="@dimen/margin_default"
                 android:layout_marginRight="@dimen/margin_default"
-                android:textColor="@color/TextColorSplash"
+                android:textColor="@color/primaryColor"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 tools:text="address" />
 
@@ -81,7 +84,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="@dimen/margin_default"
                 android:layout_marginRight="@dimen/margin_default"
-                android:textColor="@color/TextColorSplash"
+                android:textColor="@color/primaryColor"
                 android:textStyle="italic"
                 tools:text="3 Bed" />
 
@@ -95,7 +98,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="@dimen/margin_default"
                 android:layout_marginRight="@dimen/margin_default"
-                android:textColor="@color/TextColorSplash"
+                android:textColor="@color/primaryColor"
                 android:textStyle="italic"
                 tools:text="3 bathroom" />
 
@@ -122,7 +125,8 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="@dimen/margin_default"
                 android:layout_marginRight="@dimen/margin_default"
-                android:textColor="@color/TextColorSplash"
+                android:textColor="@color/primaryColor"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="About" />
 
@@ -138,7 +142,8 @@
                 android:layout_marginEnd="@dimen/margin_large"
                 android:layout_marginRight="@dimen/margin_large"
                 android:lineSpacingMultiplier="@dimen/body_text_line_spacing"
-                android:textColor="@color/TextColorSplash"
+                android:textColor="@color/primaryColor"
+                android:textSize="14sp"
                 tools:text=" The Overview of house" />
 
         </RelativeLayout>

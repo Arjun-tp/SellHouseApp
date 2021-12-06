@@ -52,9 +52,9 @@ public class PropertyDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_house_details, container, false);
-//        ButterKnife.bind(this, view);
 
         getActivity().setTitle("House Details");
+//        getActivity().setTitleColor(getResources().getColor(R.color.white));
 
         try {
 
