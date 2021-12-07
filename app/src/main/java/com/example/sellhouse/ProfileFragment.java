@@ -103,6 +103,9 @@ public class ProfileFragment extends Fragment {
                 }
                 String imageFromDb = dataSnapshot.child("imageUrl").getValue(String.class);
                 if (imageFromDb != null){
+                    Picasso.get()
+                            .load(imageFromDb)
+                            .into(mImageView);
 //                    Picasso.with(getContext()).load(imageFromDb).into(mImageView);
                 }
             }
@@ -171,7 +174,7 @@ public class ProfileFragment extends Fragment {
                             addressLine1.getText().toString().trim(),
                             addressLine2.getText().toString().trim(),
                             postalCode.getText().toString().trim(),
-                            mStorageRef.getDownloadUrl().toString());
+                            taskSnapshot.getUploadSessionUri().toString());
 //                    mStorageRef.getDownloadUrl().toString()
                     String uploadId = mDatabaseRef.push().getKey();
                     mDatabaseRef.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid())).setValue(upload);
@@ -215,7 +218,29 @@ public class ProfileFragment extends Fragment {
         if (requestCode == PICK_IMAGE_REQUEST && data!=null && data.getData()!=null){
             mImageUri = data.getData();
 //            mImageView.setImageURI(mImageUri);
-            Picasso.with(getContext()).load(mImageUri).into(mImageView);
+            Picasso.get()
+                    .load(mImageUri)
+                    .into(mImageView);
+//            Picasso.with(getContext()).load(mImageUri).into(mImageView);
         }
     }
 }
+
+//
+//FirebaseDatabase.getInstance().getReference().child("imageUrl")
+//        .addValueEventListener(new ValueEventListener() {
+//@Override
+//public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//        String image = dataSnapshot.getValue(String.class);
+//        Picasso.get()
+//        .load(image)
+//        .into(mImageView);
+////                                Picasso.get(getContext()).load(image).into(mImageView);
+//
+//        }
+//
+//@Override
+//public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//        }
+//        });

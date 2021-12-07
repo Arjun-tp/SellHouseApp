@@ -14,5 +14,4 @@
         android:iconTint="@color/white"
         android:title="Filter"
         app:showAsAction="ifRoom|collapseActionView"/>
-
 </menu>

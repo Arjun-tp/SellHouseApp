@@ -12,6 +12,7 @@ public class Upload {
         this.postCode = postCode;
         this.imageUrl = imageUrl;
     }
+    public Upload(){};
 
     public String getFullName() {
         return fullName;
