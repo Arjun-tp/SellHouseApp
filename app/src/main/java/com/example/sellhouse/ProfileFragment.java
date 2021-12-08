@@ -1,7 +1,11 @@
 package com.example.sellhouse;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,19 +26,26 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.io.IOException;
 
 public class ProfileFragment extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -46,9 +57,12 @@ public class ProfileFragment extends Fragment {
     public static String loginMail;
     public static String mobile;
     public static String password;
+    private String profileImageUrl;
 
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
+
+    SharedPreferences myPref;
 
 
     @Override
@@ -72,9 +86,16 @@ public class ProfileFragment extends Fragment {
 
         mStorageRef = FirebaseStorage.getInstance().getReference("Users");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+        myPref = getContext().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
 
 //        mDatabaseRef.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid()));
 
+//        if (profileImageUrl != null){
+//            Picasso.get().load(profileImageUrl).into(mImageView);
+//        } else {
+//            mImageView.setImageDrawable(getResources().getDrawable(R.drawable.placeholder_image));
+//        }
+        
         email.setText(loginMail);
         email.setEnabled(false);
         mImageView.setImageDrawable(getResources().getDrawable(R.drawable.placeholder_image));
@@ -103,10 +124,37 @@ public class ProfileFragment extends Fragment {
                 }
                 String imageFromDb = dataSnapshot.child("imageUrl").getValue(String.class);
                 if (imageFromDb != null){
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference("Users/" + String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid()) + ".jpg");
+                    try {
+                        File localImage = File.createTempFile("tempfile",".jpg");
+                        storageReference.getFile(localImage)
+                                .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                        Bitmap bitmap = BitmapFactory.decodeFile(localImage.getAbsolutePath());
+                                        mImageView.setImageBitmap(bitmap);
+                                                Log.d("01111111111111","");
+
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getContext(),"Failed to get image", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+//                    StorageReference httpsReference = FirebaseStorage.getInstance().getReferenceFromUrl(profileImageUrl);
+//                    String dataToGet = myPref.getString("channel", "No Image found");
+                   /* Glide.with(getContext())
+                            .load(imageFromDb)
+                            .into(mImageView);
                     Picasso.get()
                             .load(imageFromDb)
                             .into(mImageView);
-//                    Picasso.with(getContext()).load(imageFromDb).into(mImageView);
+                    Picasso.with(getContext()).load(imageFromDb).into(mImageView);*/
                 }
             }
             @Override
@@ -141,7 +189,6 @@ public class ProfileFragment extends Fragment {
                 uploadFile();
             }
         });
-
         return view;
     }
 
@@ -153,7 +200,8 @@ public class ProfileFragment extends Fragment {
 
     private void uploadFile(){
         if (mImageUri != null){
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
+            StorageReference fileReference = mStorageRef
+                    .child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid()) + "." + getFileExtension(mImageUri));
             fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -165,6 +213,15 @@ public class ProfileFragment extends Fragment {
                         }
                     }, 500);
                     Toast.makeText(getContext(), "Upload Successful!", Toast.LENGTH_LONG).show();
+                    fileReference.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            profileImageUrl =task.getResult().toString();
+                            String dataToSave = profileImageUrl;
+                            myPref.edit().putString("channel", dataToSave).apply();
+                            Picasso.get().load(profileImageUrl).into(mImageView);
+                        }
+                    });
                     User upload = new User(
                             email.getText().toString().trim(),
                             mobile,
@@ -174,10 +231,11 @@ public class ProfileFragment extends Fragment {
                             addressLine1.getText().toString().trim(),
                             addressLine2.getText().toString().trim(),
                             postalCode.getText().toString().trim(),
-                            taskSnapshot.getUploadSessionUri().toString());
+                            mStorageRef.getDownloadUrl().toString());
 //                    mStorageRef.getDownloadUrl().toString()
                     String uploadId = mDatabaseRef.push().getKey();
                     mDatabaseRef.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid())).setValue(upload);
+
 
 
                     Fragment fragment = new HomeFragment();
@@ -218,29 +276,12 @@ public class ProfileFragment extends Fragment {
         if (requestCode == PICK_IMAGE_REQUEST && data!=null && data.getData()!=null){
             mImageUri = data.getData();
 //            mImageView.setImageURI(mImageUri);
-            Picasso.get()
+           /* Picasso.get()
+                    .load(mImageUri)
+                    .into(mImageView);*/
+            Glide.with(getContext())
                     .load(mImageUri)
                     .into(mImageView);
-//            Picasso.with(getContext()).load(mImageUri).into(mImageView);
         }
     }
 }
-
-//
-//FirebaseDatabase.getInstance().getReference().child("imageUrl")
-//        .addValueEventListener(new ValueEventListener() {
-//@Override
-//public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//        String image = dataSnapshot.getValue(String.class);
-//        Picasso.get()
-//        .load(image)
-//        .into(mImageView);
-////                                Picasso.get(getContext()).load(image).into(mImageView);
-//
-//        }
-//
-//@Override
-//public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//        }
-//        });
