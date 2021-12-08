@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/mImageViewNotification"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 app:layout_constrainedHeight="true"
@@ -51,6 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:gravity="center"
                 android:maxLines="2"
                 android:text="@tools:sample/lorem/random"
                 android:textSize="16sp"

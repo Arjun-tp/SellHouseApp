@@ -39,7 +39,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         Notification notificationModel = mData.get(position);
         holder.title.setText(notificationModel.getTitle());
         holder.description.setText(notificationModel.getDescription());
-        holder.mImageView.setImageResource(mData.get(position).image);
+        holder.mImageView.setImageResource(R.drawable.notification);
     }
 
     // total number of rows
