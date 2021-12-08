@@ -21,8 +21,8 @@
                 android:id="@+id/backdrop"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/backPosterHieght"
-                android:src="@drawable/home"
                 android:scaleType="fitXY"
+                android:src="@drawable/home"
                 tools:background="#FFFFFF" />
 
             <TextView
@@ -105,9 +105,9 @@
 
             <LinearLayout
                 android:id="@+id/rating_container"
-                android:layout_below="@id/bathroom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/bathroom"
                 android:layout_marginStart="@dimen/margin_large"
                 android:layout_marginLeft="@dimen/margin_large"
                 android:layout_marginTop="10dp"
@@ -138,13 +138,42 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="@dimen/margin_large"
                 android:layout_marginLeft="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginTop="22dp"
                 android:layout_marginEnd="@dimen/margin_large"
                 android:layout_marginRight="@dimen/margin_large"
                 android:lineSpacingMultiplier="@dimen/body_text_line_spacing"
                 android:textColor="@color/primaryColor"
                 android:textSize="14sp"
                 tools:text=" The Overview of house" />
+
+            <Button
+                android:id="@+id/btnCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rating_container"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:lineSpacingMultiplier="@dimen/body_text_line_spacing"
+                android:text="Phone"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rating_container"
+                android:layout_marginStart="280dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:lineSpacingMultiplier="@dimen/body_text_line_spacing"
+                android:text="Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
 
         </RelativeLayout>
     </ScrollView>
