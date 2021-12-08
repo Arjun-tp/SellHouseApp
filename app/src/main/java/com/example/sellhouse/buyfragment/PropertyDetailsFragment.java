@@ -66,7 +66,7 @@ public class PropertyDetailsFragment extends Fragment {
         House_Model HouseData =(House_Model)intent.getParcelableExtra("houseDetails");
 
         TextView title = view.findViewById(R.id.title);
-        title.setText("Brand New Bunglow with two bedroom");
+        title.setText(HouseData.getDescription());
 
         TextView price = view.findViewById(R.id.price);
         price.setText(String.format("$%s", HouseData.getPrice()));

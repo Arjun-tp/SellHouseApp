@@ -97,10 +97,6 @@ public class BuyFragment extends Fragment {
 
     private void initViews() {
         ArrayList<House_Model> houseLists = new ArrayList<>();
-//        houseLists.add(new House_Model("$1,200,000", R.drawable.home, "35 Hanover Street\nHuntington Station, NY 11746", 3, 1));
-//        houseLists.add(new House_Model("$5,800,000", R.drawable.home, "646 W. Mulberry Court\n Bronx, NY 10472", 2, 1));
-//        houseLists.add(new House_Model("$2,000,000", R.drawable.home, "623 Golf Rd.\n Tonawanda, NY 14150", 2, 1));
-//        houseLists.add(new House_Model("$6,999,999", R.drawable.home, "8910 Hickory Ave.\nPatchogue, NY 11772", 2, 1));
         buyHouseRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         adapter = new BuyHouseAdapter(this.getActivity(), houseLists);
         gridAdapter = new BuyHouseGridAdapter(this.getActivity(), houseLists);
@@ -110,7 +106,7 @@ public class BuyFragment extends Fragment {
             public void onClick(View view, int position) {
                 House_Model houseData = houseLists.get(position);
                 Intent intent = new Intent(getActivity(), PropertyDetailsActivity.class);
-                House_Model houseDetails = new House_Model(houseData.price, houseData.image,houseData.address1,houseData.noOfBedrooms,houseData.noOfWashrooms);
+                House_Model houseDetails = new House_Model(houseData.price, houseData.image,houseData.address1,houseData.noOfBedrooms,houseData.noOfWashrooms, houseData.description);
                 Log.d("houseDetails", "onClick: "+houseDetails.image);
                 Log.d("houseData", "houseData: "+houseData.image);
                 intent.putExtra("houseDetails", houseDetails);
