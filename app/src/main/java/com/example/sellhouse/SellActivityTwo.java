@@ -208,7 +208,7 @@ public class SellActivityTwo extends Fragment {
                             FirebaseDatabase.getInstance().getReference("Notification").child(uploadId)
                                     .setValue(notificationUpload);
                             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
-                                    new BuyFragment()).commit();
+                                    new HomeFragment()).commit();
                         } else {
                             Toast.makeText(getContext(), "Failed to Add!", Toast.LENGTH_LONG).show();
                         }
