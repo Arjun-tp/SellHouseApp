@@ -1,0 +1,180 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blackCol">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <RelativeLayout
+            android:id="@+id/scroll_view_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false">
+
+            <ImageView
+                android:id="@+id/backdrop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/backPosterHieght"
+                android:scaleType="fitXY"
+                android:src="@drawable/home"
+                tools:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/backdrop"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/primaryColor"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="title" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/primaryColor"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="price" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:textColor="@color/primaryColor"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="address" />
+
+            <TextView
+                android:id="@+id/bedroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:textColor="@color/primaryColor"
+                android:textStyle="italic"
+                tools:text="3 Bed" />
+
+            <TextView
+                android:id="@+id/bathroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bedroom"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:textColor="@color/primaryColor"
+                android:textStyle="italic"
+                tools:text="3 bathroom" />
+
+
+            <LinearLayout
+                android:id="@+id/rating_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bathroom"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="10dp"
+                android:clipChildren="false"
+                android:gravity="bottom"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rating_container"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:textColor="@color/primaryColor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="About" />
+
+            <TextView
+                android:id="@+id/overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rating_container"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:lineSpacingMultiplier="@dimen/body_text_line_spacing"
+                android:textColor="@color/primaryColor"
+                android:textSize="14sp"
+                tools:text=" The Overview of house" />
+
+            <Button
+                android:id="@+id/btnCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rating_container"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:lineSpacingMultiplier="@dimen/body_text_line_spacing"
+                android:text="Phone"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rating_container"
+                android:layout_marginStart="280dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:lineSpacingMultiplier="@dimen/body_text_line_spacing"
+                android:text="Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

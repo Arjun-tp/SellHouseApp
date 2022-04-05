@@ -11,7 +11,7 @@
         android:layout_width="match_parent">
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spCategory"
             android:layout_width="350dp"
             android:layout_height="49dp"
             android:layout_marginStart="30dp"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/spBedrooms"
             android:layout_width="350dp"
             android:layout_height="49dp"
             android:layout_marginStart="30dp"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <Spinner
-            android:id="@+id/spinner4"
+            android:id="@+id/spWashrooms"
             android:layout_width="350dp"
             android:layout_height="49dp"
             android:layout_marginStart="30dp"
@@ -66,7 +66,7 @@
             android:text="Bedrooms"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/spCategory" />
 
         <TextView
             android:id="@+id/textView17"
@@ -78,7 +78,7 @@
             android:text="Washrooms"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+            app:layout_constraintTop_toBottomOf="@+id/spBedrooms" />
 
         <TextView
             android:id="@+id/textView18"
@@ -90,7 +90,7 @@
             android:text="Price"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+            app:layout_constraintTop_toBottomOf="@+id/spWashrooms" />
 
         <TextView
             android:id="@+id/textView19"
@@ -102,10 +102,10 @@
             android:text="Location"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/extMinPrice" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/extMinPrice"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -117,7 +117,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <EditText
-            android:id="@+id/editTextNumber2"
+            android:id="@+id/extMaxPrice"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="55dp"
@@ -126,10 +126,10 @@
             android:hint="Max Price"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+            app:layout_constraintTop_toBottomOf="@+id/spWashrooms" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/extLocation"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
@@ -143,7 +143,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
         <Button
-            android:id="@+id/btnSellHouse"
+            android:id="@+id/btnApply"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="145dp"
             android:layout_height="50dp"
@@ -157,10 +157,10 @@
             android:textColorHighlight="@color/white"
             android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toBottomOf="@+id/extLocation" />
 
         <Button
-            android:id="@+id/btnBuyHouse"
+            android:id="@+id/btnClear"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="145dp"
             android:layout_height="50dp"
@@ -170,7 +170,7 @@
             android:textAllCaps="false"
             android:textColor="@color/primaryColor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toBottomOf="@+id/extLocation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

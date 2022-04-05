@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity {
     Button register;
     EditText email, mobile, password, confirmPassword;
+    TextView loginButton;
 
     private FirebaseAuth mAuth;
 //    private DatabaseReference root = db.getReference().child("Users");
@@ -36,6 +38,15 @@ public class RegisterActivity extends AppCompatActivity {
         mobile = findViewById(R.id.extMobile);
         password = findViewById(R.id.extPassword);
         confirmPassword = findViewById(R.id.extConfirmPassword);
+        loginButton = findViewById(R.id.txvLogin);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         register.setOnClickListener(new View.OnClickListener() {
@@ -44,9 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
                 registerUser();
             }
         });
-
-
-
     }
 
     private void registerUser(){

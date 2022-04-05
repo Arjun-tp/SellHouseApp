@@ -1,4 +1,4 @@
-package com.example.sellhouse.notification;
+package com.example.sellhouse.buyfragment;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,18 +10,18 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sellhouse.R;
-import com.example.sellhouse.model.Notification;
+import com.example.sellhouse.model.House_Model;
 
 import java.util.List;
 
-public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
+public class BuyHouseGridAdapter extends RecyclerView.Adapter<BuyHouseGridAdapter.ViewHolder> {
 
-    private List<Notification> mData;
+    private List<House_Model> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    public NotificationAdapter(Context context, List<Notification> data) {
+    BuyHouseGridAdapter(Context context, List<House_Model> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -29,17 +29,19 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
+        View view = mInflater.inflate(R.layout.new_house_row, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Notification notificationModel = mData.get(position);
-        holder.title.setText(notificationModel.getTitle());
-        holder.description.setText(notificationModel.getDescription());
-        holder.mImageView.setImageResource(R.drawable.notification);
+        House_Model house = mData.get(position);
+        holder.price.setText(String.format("$%s", house.getPrice()));
+//        holder.mImageView.setImageResource(Integer.parseInt(String.valueOf(house.image)));
+        holder.address.setText(house.getAddress1());
+        holder.bedroomTextview.setText(String.format("%s Bed", house.getNoOfBedrooms()));
+        holder.bathroomTextView.setText(String.format("%s Bath", house.getNoOfWashrooms()));
     }
 
     // total number of rows
@@ -51,14 +53,16 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView title, description;
+        TextView price, address, bedroomTextview, bathroomTextView;
         ImageView mImageView;
 
         ViewHolder(View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.txvTitle);
-            description = itemView.findViewById(R.id.txvdescription);
+            price = itemView.findViewById(R.id.price);
             mImageView = itemView.findViewById(R.id.mImageViewNotification);
+            address = itemView.findViewById(R.id.address);
+            bedroomTextview = itemView.findViewById(R.id.bedroomTextview);
+            bathroomTextView = itemView.findViewById(R.id.bathroomTextView);
             itemView.setOnClickListener(this);
         }
 

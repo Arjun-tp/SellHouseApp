@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
     EditText email, password;
     Button login;
+    TextView registerButton;
     private FirebaseAuth mAuth;
 
 
@@ -31,11 +33,20 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.extEmail);
         password = findViewById(R.id.extPassword);
         login = findViewById(R.id.btnLogin);
+        registerButton = findViewById(R.id.txvRegister);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 userLogin();
+            }
+        });
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }

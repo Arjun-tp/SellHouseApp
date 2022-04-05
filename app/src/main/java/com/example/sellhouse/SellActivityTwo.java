@@ -144,17 +144,26 @@ public class SellActivityTwo extends Fragment {
         if (requestCode == PICK_IMAGE_REQUEST_ONE && data!=null && data.getData()!=null){
             imageViewOneUri = data.getData();
 //            mImageView.setImageURI(imageViewOneUri);
-            Picasso.with(getContext()).load(imageViewOneUri).into(imageViewOne);
+            Picasso.get()
+                    .load(imageViewOneUri)
+                    .into(imageViewOne);
+//            Picasso.with(getContext()).load(imageViewOneUri).into(imageViewOne);
         }
         if (requestCode == PICK_IMAGE_REQUEST_TWO && data!=null && data.getData()!=null){
             imageViewTwoUri = data.getData();
 //            mImageView.setImageURI(imageViewTwoUri);
-            Picasso.with(getContext()).load(imageViewTwoUri).into(imageViewTwo);
+            Picasso.get()
+                    .load(imageViewTwoUri)
+                    .into(imageViewTwo);
+//            Picasso.with(getContext()).load(imageViewTwoUri).into(imageViewTwo);
         }
         if (requestCode == PICK_IMAGE_REQUEST_THREE && data!=null && data.getData()!=null){
             imageViewThreeUri = data.getData();
 //            mImageView.setImageURI(imageViewThreeUri);
-            Picasso.with(getContext()).load(imageViewThreeUri).into(imageViewThree);
+            Picasso.get()
+                    .load(imageViewThreeUri)
+                    .into(imageViewThree);
+//            Picasso.with(getContext()).load(imageViewThreeUri).into(imageViewThree);
         }
     }
 
@@ -192,14 +201,14 @@ public class SellActivityTwo extends Fragment {
                         if (task1.isSuccessful()){
                             Toast.makeText(getContext(), "Property Added Successfully!", Toast.LENGTH_LONG).show();
                             Notification notificationUpload = new Notification(
-                                    "New Property Added!!",
+                                    "New Property Added!",
                                     address1Here + " "+cityHere + " "+ provinceHere,
                                     R.drawable.home
                             );
                             FirebaseDatabase.getInstance().getReference("Notification").child(uploadId)
                                     .setValue(notificationUpload);
                             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
-                                    new BuyFragment()).commit();
+                                    new HomeFragment()).commit();
                         } else {
                             Toast.makeText(getContext(), "Failed to Add!", Toast.LENGTH_LONG).show();
                         }
